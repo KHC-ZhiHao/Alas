@@ -1,0 +1,55 @@
+{
+  "name": "alas",
+  "version": "0.3.8",
+  "description": "View Model System.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "nyc mocha --require ts-node/register ./test/*.ts",
+    "prod": "npm run test && npm run build",
+    "build": "webpack --progress --hide-modules",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "docs": "vuepress dev docs-code",
+    "build-docs": "vuepress build docs-code"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KHC-ZhiHao/Alas.git"
+  },
+  "author": "khczhihao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KHC-ZhiHao/Alas/issues"
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "exclude": [
+      "**/*.js",
+      "**/*.d.ts",
+      "node_modules",
+      "example/**/*.ts",
+      "test/**/*.ts"
+    ],
+    "all": true
+  },
+  "homepage": "https://github.com/KHC-ZhiHao/Alas#readme",
+  "devDependencies": {
+    "@types/chai": "^4.2.16",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^13.13.45",
+    "chai": "^4.3.3",
+    "coveralls": "^3.0.6",
+    "mocha": "^6.2.0",
+    "nyc": "^14.1.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4",
+    "vuepress": "^1.8.2",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7",
+    "ts-loader": "^6.2.2",
+    "tslint": "^6.1.1",
+    "tslint-config-standard": "^9.0.0",
+    "tslint-loader": "^3.5.4"
+  }
+}
