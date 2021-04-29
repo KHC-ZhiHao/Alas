@@ -6,7 +6,7 @@ import { EventCallback, MakeModelOptions } from './types'
 class Model {
     _model: ModelUnit
     _container!: Container
-    $self: any = {}
+    $self: { [key: string]: any } = {}
     constructor(model: ModelUnit) {
         this._model = model
         privateProperty(this, '_container', model.base.container)
