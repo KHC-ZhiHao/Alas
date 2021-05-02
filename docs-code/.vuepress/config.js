@@ -20,6 +20,10 @@ module.exports = {
             {
                 text: 'GitHub',
                 link: 'https://github.com/KHC-ZhiHao/Alas'
+            },
+            {
+                text: 'Example',
+                link: 'https://github.com/KHC-ZhiHao/Alas/tree/master/example/vue'
             }
         ],
         sidebar: {
