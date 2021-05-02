@@ -31,6 +31,12 @@
                             <h5 class="card-title">{{ trans.transDate }}</h5>
                             <div class="card-text">均價: {{ trans.avgPrice }}</div>
                             <div class="card-text">交易量: {{ trans.transQuantity }}</div>
+                            <button
+                                type="button"
+                                class="btn btn-sm btn-danger mt-2"
+                                @click="remove(trans)">
+                                刪除
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -41,7 +47,7 @@
 
 <script lang="ts">
 import { self } from '@/self'
-import { alas } from '@/alas'
+import { alas, AlasTypes } from '@/alas'
 import { rootStatus } from '@/root-status'
 import { defineComponent, onMounted } from 'vue'
 export default defineComponent({
@@ -58,6 +64,14 @@ export default defineComponent({
         }
 
         /**
+         * 可以透過 AlayTypes 指定參數屬於什麼 model
+         */
+
+        const remove = (item: AlasTypes['Agri']['Trans']['model']) => {
+            state.trans.removeByItem(item)
+        }
+
+        /**
          * 可以驗證目前的資料是否符合其規則，如果不符合則跳回到表單。
          */
 
@@ -71,6 +85,7 @@ export default defineComponent({
 
         return {
             state,
+            remove,
             backSearch,
             transSearch
         }
