@@ -523,3 +523,11 @@ list.on('$fetchFail', (list: List, context: { id: string }, key: string) => { ..
 ```ts
 list.on('$remove', (list: List, context: { id: string }, key: string) => { ... })
 ```
+
+### $clear
+
+觸發 [clear](#clear) 後觸發。
+
+```ts
+list.on('$clear', (list: List, context: { id: string }, key: string) => { ... })
+```
