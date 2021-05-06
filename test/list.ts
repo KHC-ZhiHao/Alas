@@ -349,6 +349,18 @@ describe('Event', () => {
         }, 20)
     })
 
+    it('clear', function(done) {
+        let list = getList()
+        list.on('$clear', () => {
+            expect(list.size).to.equal(0)
+            done()
+        })
+        list.write({
+            Name: 'dave'
+        })
+        list.clear()
+    })
+
     it('writeSuccess', function(done) {
         let list = getList()
         list.on('$writeSuccess', () => done())

@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve"
   },
   "dependencies": {
-    "alas": "^0.3.8",
+    "alas": "^0.3.9",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "qs": "^6.10.1",

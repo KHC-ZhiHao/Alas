@@ -30,6 +30,19 @@ describe('Base', () => {
         })
         expect(dict.isChange()).to.equal(true)
     })
+    it('clear event', function(done) {
+        let dict = getDictionary()
+        dict.on('$clear', () => {
+            expect(dict.size).to.equal(0)
+            done()
+        })
+        dict.write({
+            dave: {
+                Name: 'dave'
+            }
+        })
+        dict.clear()
+    })
     it('validate', function() {
         let dict = getDictionary()
         expect(dict.validate().success).to.equal(true)

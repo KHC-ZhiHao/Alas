@@ -6,6 +6,7 @@ import Model from './model';
 import Event from './event';
 import Container from './container';
 import Dictionary from './dictionary';
+import ListenerGroup from './listener-group';
 import Status, { StatusOptions } from './status';
 import { MakeModelOptions, EventCallback, RuleArray } from './types';
 import { Containers, ContainerOptions, PackageOptions, ModelOptions } from './index';
@@ -45,6 +46,7 @@ declare class Main<T extends Containers = Containers> extends Base {
     static get List(): typeof List;
     static get Dictionary(): typeof Dictionary;
     static get MsPackage(): import("./interfaces").IPackage;
+    static get ListenerGroup(): typeof ListenerGroup;
     get utils(): typeof Utils;
     get name(): string;
     get locale(): string;
