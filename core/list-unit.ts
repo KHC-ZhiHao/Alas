@@ -216,6 +216,7 @@ class ListUnit<T extends Model> extends GroupUnit implements IGroup {
         this.map = {}
         this.items = []
         this.setDirty(false)
+        this.event.emit(this.unit, '$clear', [])
     }
 
     remove(key: string) {

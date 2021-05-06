@@ -171,3 +171,88 @@ export default defineComponent({
 * TypeScript 的支援佳，變動相對容易
 * 可以基於 Import 行為去引入 Status，使管理更加容易
 * 複合式的狀態由 Model 本身去接手，改善了 Vuex 本身要進行資料改動的困難
+
+## 重製狀態
+
+State 可以隨時重製成宣告時的樣子，你可以在各種層級的 path 中定義自己個別的狀態，減輕 root status 的負擔，使程式碼更加清潔可控：
+
+### 假設我們存在這樣的 Route
+
+```js
+const routes: Array<RouteRecordRaw> = [
+    {
+        path: 'users/:user',
+        component: () => import('./users/main.vue'),
+        children: [
+            {
+                path: '/',
+                component: () => import('./users/overview.vue')
+            }
+        ]
+    }
+]
+```
+
+### 在這個資料夾結構中加入專屬的 status 檔案
+
+```bash
+|── router.js
+└── users
+    ├── status.js
+    ├── overview.vue
+    └── main.vue
+```
+
+當進入這個頁面的時候加載 user 資料，但在離開的時候重置 user 的資料：
+
+```vue
+<!-- main.vue -->
+<template>
+    <div>
+        <div v-if="user.$ready === false">Loading ...</div>
+        <router-view v-else></router-view>
+    </div>
+</template>
+<script>
+import router from '../router.js'
+import { status } from './status.js'
+import { defineComponent, onMounted, onUnmounted } from 'vue'
+export default defineComponent({
+    setup() {
+        const user = status.fetch('user')
+        onMounted(() => {
+            const username = router.currentRoute.value.params.user
+            user.$o.fetch.start({
+                username
+            })
+        })
+        onUnmounted(() => {
+            status.reset('user')
+        })
+        return {
+            user
+        }
+    }
+})
+</script>
+```
+
+當我們進入 overview 的時候就能確保 user 的資料已經存在：
+
+```vue
+<!-- overview.vue -->
+<template>
+    <div>{{ user.name }}</div>
+</template>
+<script>
+import { status } from './status.js'
+import { defineComponent } from 'vue'
+export default defineComponent({
+    setup() {
+        return {
+            user: status.fetch('user')
+        }
+    }
+})
+</script>
+```

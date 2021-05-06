@@ -366,3 +366,11 @@ dictionary.remove = function(key: string) => void
 ```ts
 dictionary.clear = function() => void
 ```
+
+### $clear
+
+觸發 [clear](#clear) 後觸發。
+
+```ts
+list.on('$clear', (list: List, context: { id: string }, key: string) => { ... })
+```

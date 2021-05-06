@@ -55,6 +55,25 @@ Dictionary Constructor，提供給需要進行擴展的開發人員使用。
 
 * type: `Dictionary` 
 
+### ListenerGroup
+
+建立一組管理 Listener 的物件，協助統一監聽與清除的功能。
+
+* type: `ListenerGroup` 
+
+::: details Example
+```ts
+import Alas from 'alas'
+let listenerGroup = new Alas.ListenerGroup()
+let alas = new Alas()
+// 觸發對象的 on 或是 $on，對象可以是 Model、List、Dictionary、Main、Status、Loader
+listenerGroup.add(alas, 'makedModel', () => { ... })
+listenerGroup.add(alas, 'makedList', () => { ... })
+// 移除所有事件監聽
+listenerGroup.close()
+```
+:::
+
 ### MsPackage
 
 預設包 Ms Package 的物件，可以藉由拓展此物件來增加 Ms Package 的語系支援範圍。

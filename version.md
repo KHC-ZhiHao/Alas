@@ -1,3 +1,8 @@
+## ver 0.3.9
+
+1. list/dictionary clear event
+2. Utils ListenerGroup
+
 ## ver 0.3.8
 
 1. model $generate method

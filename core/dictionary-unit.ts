@@ -91,6 +91,7 @@ class DictionaryUnit<T extends Model> extends GroupUnit implements IGroup {
     clear() {
         this.map.clear()
         this.setDirty(false)
+        this.event.emit(this.unit, '$clear', [])
     }
 }
 

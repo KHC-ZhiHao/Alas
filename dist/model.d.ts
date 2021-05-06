@@ -5,7 +5,9 @@ import { EventCallback, MakeModelOptions } from './types';
 declare class Model {
     _model: ModelUnit;
     _container: Container;
-    $self: any;
+    $self: {
+        [key: string]: any;
+    };
     constructor(model: ModelUnit);
     get $v(): import("./types").Views;
     get $o(): {

@@ -6,6 +6,7 @@ import Model from './model'
 import Event from './event'
 import Container from './container'
 import Dictionary from './dictionary'
+import ListenerGroup from './listener-group'
 import Status, { StatusOptions } from './status'
 import { MsPackage } from './ms-package'
 import { MakeModelOptions, EventCallback, RuleArray } from './types'
@@ -82,6 +83,10 @@ class Main<T extends Containers = Containers> extends Base {
 
     static get MsPackage() {
         return MsPackage
+    }
+
+    static get ListenerGroup() {
+        return ListenerGroup
     }
 
     get utils() {
