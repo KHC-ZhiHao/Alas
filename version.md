@@ -1,3 +1,7 @@
+## ver 0.4.0
+
+1. email rule 不判斷空字串
+
 ## ver 0.3.9
 
 1. list/dictionary clear event
