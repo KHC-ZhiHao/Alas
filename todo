@@ -1,0 +1,4 @@
+1.0.0:
+    ☐ 廢除 init 與 export 改由 install 代替，優化 $copy
+    ☐ definedModel
+    ☐ alasType => AlasType.Model[container][model]

@@ -43,7 +43,7 @@
 
 1. 定義 model structure 時分離 body 與 refs
 2. 可以使用 Array 建立 Container options
-3. 修復 foreach 在 remove item 後導致後面無法查到 model 的bug
+3. 修復 foreach 在 remove item 後導致後面無法查到 model 的 bug
 4. 更好的 ts 優化與升級 ts版本
 5. vue plugin
 
