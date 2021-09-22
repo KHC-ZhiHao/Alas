@@ -1,4 +1,5 @@
 import { ModelOptions, ModelStructure, Loader } from '../../../core'
+import { loaderSimplify } from '../../../core/loader'
 import * as Attributes from './attributes'
 
 const map = {
@@ -17,6 +18,7 @@ export type Structure = ModelStructure<{
         $o: {
             getName: Loader<string, string>
             getError: Loader<string, string>
+            getNameSimple: Loader<string, string>
         }
     }
 }>
@@ -67,7 +69,10 @@ export const options: ModelOptions<Structure> = {
         },
         getError(self, resolve, reject, prefix) {
             setTimeout(() => reject(prefix + self.name), 50)
-        }
+        },
+        getNameSimple: loaderSimplify(async(self, prefix) => {
+            return prefix + self.name
+        })
     },
 
     errorMessage(self, message) {

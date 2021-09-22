@@ -29,7 +29,11 @@ declare class LoaderCore extends Base {
     reset(): void;
     start(options: any): Promise<any>;
 }
-declare class Loader<T, P = any> {
+declare class ExtensibleFunction extends Function {
+    constructor(f: (...args: any) => any);
+}
+declare class Loader<T, P = any> extends ExtensibleFunction {
+    start: (params: P) => Promise<T>;
     _core: LoaderCore;
     _result?: T;
     _params?: P;
@@ -45,7 +49,6 @@ declare class Loader<T, P = any> {
     once<T extends keyof Channels>(channelName: T, callback: EventCallback<Channels[T]>): string;
     off(channelName: string, id: string): void;
     seek(params: P): Promise<T>;
-    start(params: P): Promise<T>;
     reset(): void;
 }
 export declare class LoaderCase<T> {
@@ -63,6 +66,9 @@ export declare class LoaderCase<T> {
     _copyStatus(loaders: LoaderCase<any>): void;
     reset(): void;
 }
+export declare type LoaderSimplifyResponse<T, S, R> = (self: T, done: (result: R) => void, fail: (error: any) => void, params: S) => Promise<any>;
+export declare const loaderSimplify: <T, S, R>(callback: (self: T, data: S) => Promise<R>) => LoaderSimplifyResponse<T, S, R>;
+export declare type LoaderMethod<T, K, R, P> = K extends LoaderSimplifyResponse<any, any, any> ? LoaderSimplifyResponse<T, P, R> : (target: T, done: (result: R) => void, fail: (error: any) => void, params: P) => any;
 export declare function create(target: any, type: Modes, options?: {
     [key: string]: LoaderHandler;
 }): LoaderCase<any>;

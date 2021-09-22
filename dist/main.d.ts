@@ -47,6 +47,7 @@ declare class Main<T extends Containers = Containers> extends Base {
     static get Dictionary(): typeof Dictionary;
     static get MsPackage(): import("./interfaces").IPackage;
     static get ListenerGroup(): typeof ListenerGroup;
+    get loaderSimplify(): <T_1, S, R>(callback: (self: T_1, data: S) => Promise<R>) => import("./loader").LoaderSimplifyResponse<T_1, S, R>;
     get utils(): typeof Utils;
     get name(): string;
     get locale(): string;
@@ -63,7 +64,7 @@ declare class Main<T extends Containers = Containers> extends Base {
     rules(data: RuleArray): Array<(...params: any) => boolean | string>;
     setLocale(locale: string): void;
     instanceof<K extends keyof T, N extends keyof T[K]['models']>(container: K, model: N, source: any): Boolean;
-    registerStatus<T extends StatusOptions>(name: string, options: T): Status<T, T["loaders"] extends undefined ? {
+    registerStatus<T extends StatusOptions<any>>(name: string, options: T): Status<T, T["loaders"] extends undefined ? {
         [key: string]: any;
     } : T["loaders"]>;
 }

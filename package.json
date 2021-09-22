@@ -1,6 +1,6 @@
 {
   "name": "alas",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "View Model System.",
   "main": "dist/index.js",
   "scripts": {

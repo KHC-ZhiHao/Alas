@@ -88,11 +88,22 @@ class LoaderCore extends Base {
     }
 }
 
-class Loader<T, P = any> {
+class ExtensibleFunction extends Function {
+    constructor(f: (...args: any) => any) {
+        super()
+        return Object.setPrototypeOf(f, new.target.prototype)
+    }
+}
+
+class Loader<T, P = any> extends ExtensibleFunction {
+    start: (params: P) => Promise<T>
     _core: LoaderCore
     _result?: T
     _params?: P
     constructor(type: Modes, target: any, name: string, handler: LoaderHandler) {
+        const start = (params: P) => this._core.start(params)
+        super(start)
+        this.start = start
         this._core = new LoaderCore(this, type, target, name, handler)
     }
 
@@ -154,10 +165,6 @@ class Loader<T, P = any> {
         })
     }
 
-    start(params: P): Promise<T> {
-        return this._core.start(params)
-    }
-
     reset() {
         return this._core.resetAll()
     }
@@ -207,6 +214,27 @@ export class LoaderCase<T> {
         }
     }
 }
+
+export type LoaderSimplifyResponse<T, S, R> = (self: T, done: (result: R) => void, fail: (error: any) => void, params: S) => Promise<any>
+
+export const loaderSimplify = <T, S, R>(callback: (self: T, data: S) => Promise<R>) => {
+    let response = async(self: T, done: any, fail: any, params: S) => {
+        try {
+            let result = await callback(self, params)
+            done(result)
+        } catch (error) {
+            fail(error)
+        }
+    }
+    return response as LoaderSimplifyResponse<T, S, R>
+}
+
+export type LoaderMethod<T, K, R, P> = K extends LoaderSimplifyResponse<any, any, any> ? LoaderSimplifyResponse<T, P, R> : (
+    target: T,
+    done: (result: R) => void,
+    fail: (error: any) => void,
+    params: P
+) => any
 
 export function create(target: any, type: Modes, options: { [key: string]: LoaderHandler } = {}): LoaderCase<any> {
     let loaders = new LoaderCase()

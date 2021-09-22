@@ -13,10 +13,10 @@ type StatusLoader = (
     params: any
 ) => any
 
-export type StatusOptions = {
-    states: {
-        [key: string]: () => { [key: string]: any } | Array<any>
-    },
+type StateHandler = () => { [key: string]: any } | Array<any>
+
+export type StatusOptions<T extends Record<string, StateHandler>> = {
+    states: T,
     loaders?: {
         [key: string]: StatusLoader
     }
@@ -33,7 +33,7 @@ type Channels = {
 }
 
 class Status <
-    O extends StatusOptions,
+    O extends StatusOptions<any>,
     T extends O['loaders'] extends undefined ? { [key: string]: any } : O['loaders'] = O['loaders'] extends undefined ? { [key: string]: any } : O['loaders']
 > extends Base {
     readonly _id = Utils.generateId()
@@ -59,7 +59,11 @@ class Status <
 
     get loaders() {
         return this._loaders._items as {
-            [key in keyof T]: Loader.default<
+            [key in keyof T]: ((
+                params: Parameters<T[key]>[3] extends undefined ? void : Parameters<T[key]>[3]
+            ) => Promise<
+                Parameters<Parameters<T[key]>[1] extends LoaderDone<any> ? Parameters<T[key]>[1] : any>[0]
+            >) & Loader.default<
                 Parameters<Parameters<T[key]>[1] extends LoaderDone<any> ? Parameters<T[key]>[1] : any>[0],
                 Parameters<T[key]>[3] extends undefined ? void : Parameters<T[key]>[3]
             >

@@ -13,7 +13,7 @@ Loader 是伴隨著發送非同步請求時，產生相對應畫面而生的功�
 * type: `Loader<Response, Params>`
 
 ```ts
-import { Loader } from 'alas'
+import { Alas, Loader } from 'alas'
 import { ModelStructure, ModelOptions, Loader } from 'alas'
 
 type UserStructure = ModelStructure<{
@@ -35,11 +35,18 @@ const userOptions: ModelOptions<UserStructure> = {
             } catch (error) {
                 fail(error)
             }
-        }
+        },
+        // 可以藉由 loaderSimplify 省略掉 callback 行為，效力等同上面方法
+        fetchSimple: Alas.loaderSimplify(async (self, { username }) => {
+            let userId = await fetchUser(username)
+            return userId
+        })
     }
 }
 // make user ...
 user.$o.fetch.start({ username: '123' }).then(result => console.log(typeof result)) // number
+// 可以簡化成以下例子，效力等同 .start()
+user.$o.fetch({ username: '123' }).then(result => console.log(typeof result)) // number
 ```
 
 ## Property

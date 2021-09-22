@@ -12,6 +12,7 @@ import { MsPackage } from './ms-package'
 import { MakeModelOptions, EventCallback, RuleArray } from './types'
 import { Containers, ContainerOptions, PackageOptions, ModelOptions } from './index'
 import { Vue2Plugin, Vue3Plugin } from './vue'
+import { loaderSimplify } from './loader'
 
 type Params<C extends Containers> = {
     name?: string
@@ -87,6 +88,10 @@ class Main<T extends Containers = Containers> extends Base {
 
     static get ListenerGroup() {
         return ListenerGroup
+    }
+
+    get loaderSimplify() {
+        return loaderSimplify
     }
 
     get utils() {
@@ -177,7 +182,7 @@ class Main<T extends Containers = Containers> extends Base {
         return this._core.instanceof(container + '/' + model, source)
     }
 
-    registerStatus<T extends StatusOptions>(name: string, options: T) {
+    registerStatus<T extends StatusOptions<any>>(name: string, options: T) {
         let already = this._statuses.find(s => s._name === name)
         if (already) {
             throw this.$devError('registerStatus', `Status Name ${name} already exist.`)

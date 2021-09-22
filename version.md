@@ -1,3 +1,8 @@
+## ver 0.4.1
+
+1. loader 簡化呼叫方法
+2. loaderSimplify 簡化 loader 程式碼的複雜度
+
 ## ver 0.4.0
 
 1. email rule 不判斷空字串

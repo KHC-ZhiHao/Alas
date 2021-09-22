@@ -1,4 +1,5 @@
 import { expect } from 'chai'
+import { loaderSimplify } from '../core/loader'
 import Main from '../core/main'
 
 describe('Status', () => {
@@ -126,6 +127,27 @@ describe('Status', () => {
             }
         })
         status.loaders.init.start(10).then(r => {
+            expect(status.fetch('num').v).to.equal(10)
+            done()
+        })
+    })
+
+    it('loader simple', function(done) {
+        let alas = new Main()
+        let status = alas.registerStatus('', {
+            states: {
+                num: () => ({v: 0})
+            },
+            loaders: {
+                init: loaderSimplify(async(self, value: number) => {
+                    status.set('num', {
+                        v: status.fetch('num').v += value
+                    })
+                    return ''
+                })
+            }
+        })
+        status.loaders.init(10).then(r => {
             expect(status.fetch('num').v).to.equal(10)
             done()
         })

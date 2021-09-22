@@ -3,6 +3,7 @@ import ListBase from './list';
 import ModelBase from './model';
 import DictionaryBase from './dictionary';
 import * as Types from './types';
+import * as Loader from './loader';
 declare type Rule = (self: ModelBase, value: any, params: {
     [key: string]: string;
 }) => string | true;
@@ -18,7 +19,6 @@ declare type Locales = {
         [key: string]: string;
     };
 };
-export declare type LoaderMethod<T, R, P> = (target: T, done: (result: R) => void, fail: (error: any) => void, params: P) => any;
 declare type writeContext<M> = {
     key: string;
     model: M;
@@ -61,7 +61,7 @@ export interface IModelOptions<M extends ModelBase, L extends ListBase<M> = List
         [key in keyof M['$m']]: (self: M, ...parmas: Parameters<M['$m'][key]>) => ReturnType<M['$m'][key]>;
     };
     loaders?: {
-        [key in keyof M['$o']]: LoaderMethod<M, M['$o'][key]['_result'], M['$o'][key]['_params']>;
+        [key in keyof M['$o']]: Loader.LoaderMethod<M, M['$o'], M['$o'][key]['_result'], M['$o'][key]['_params']>;
     };
     list?: {
         key?: (model: M) => string;
@@ -74,7 +74,7 @@ export interface IModelOptions<M extends ModelBase, L extends ListBase<M> = List
             [key in keyof L['m']]: (list: L, ...parmas: Parameters<L['m'][key]>) => ReturnType<L['m'][key]>;
         };
         loaders?: {
-            [key in keyof L['o']]: LoaderMethod<L, L['o'][key]['_result'], L['o'][key]['_params']>;
+            [key in keyof L['o']]: Loader.LoaderMethod<L, L['o'], L['o'][key]['_result'], L['o'][key]['_params']>;
         };
     };
     dictionary?: {
@@ -85,7 +85,7 @@ export interface IModelOptions<M extends ModelBase, L extends ListBase<M> = List
             [key in keyof D['m']]: (self: D, ...parmas: Parameters<D['m'][key]>) => ReturnType<D['m'][key]>;
         };
         loaders?: {
-            [key in keyof D['o']]: LoaderMethod<D, D['o'][key]['_result'], D['o'][key]['_params']>;
+            [key in keyof D['o']]: Loader.LoaderMethod<D, D['o'], D['o'][key]['_result'], D['o'][key]['_params']>;
         };
     };
 }
