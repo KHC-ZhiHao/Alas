@@ -5,6 +5,40 @@ import Package from './fake/package'
 
 describe('Main', () => {
 
+    it('generateSimplifyLoader', function(done) {
+        let fetch = Main.generateSimplifyLoader(async(context, data: string) => {
+            await new Promise(resolve => {
+                setTimeout(() => resolve(null), 100)
+            })
+            return data
+        })
+        fetch.on('success', () => {
+            expect(fetch.loading).to.equal(false)
+            expect(fetch.result).to.equal('hello')
+            done()
+        })
+        expect(fetch.loading).to.equal(false)
+        fetch('hello')
+        expect(fetch.loading).to.equal(true)
+    })
+
+    it('generateSimplifyLoader Error', function(done) {
+        let fetch = Main.generateSimplifyLoader(async(context, data: string) => {
+            await new Promise(resolve => {
+                setTimeout(() => resolve(null), 100)
+            })
+            throw 'error'
+        })
+        fetch.on('error', () => {
+            expect(fetch.loading).to.equal(false)
+            expect(fetch.error).to.equal('error')
+            done()
+        })
+        expect(fetch.loading).to.equal(false)
+        fetch('hello')
+        expect(fetch.loading).to.equal(true)
+    })
+
     it('setLocal', function() {
         let main = new Main()
         expect(main.locale).to.equal('en-us')

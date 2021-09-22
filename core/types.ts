@@ -14,7 +14,7 @@ export type ContainerInterface = {
     [key in InterfaceSuppotrs]?: Array<string>
 }
 
-export type Modes = 'status' | 'model' | 'list' | 'dictionary'
+export type Modes = 'status' | 'model' | 'list' | 'dictionary' | 'any'
 
 // List
 

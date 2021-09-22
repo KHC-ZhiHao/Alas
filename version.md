@@ -1,3 +1,8 @@
+## ver 0.4.2
+
+1. 修正 loaderSimplify 的呼叫來源
+2. 新增靜態方法 generateSimplifyLoader
+
 ## ver 0.4.1
 
 1. loader 簡化呼叫方法

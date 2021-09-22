@@ -27,7 +27,7 @@ export type ContainerStructure<T extends Interfaces.IContainer = Interfaces.ICon
 
 export type ContainerOptions<T extends ContainerStructure = ContainerStructure> = Interfaces.IContainerOptions<T>
 
-export type Loader<T, P = any> = _Loader<T, P> & ((data: P) => Promise<T>)
+export type Loader<T, P = any> = _Loader<T, P> & _Loader<T, P>['start']
 
 export type LoaderDone<T> = (result?: T) => void
 

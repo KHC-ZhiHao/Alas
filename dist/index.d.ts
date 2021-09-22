@@ -18,7 +18,7 @@ export declare type Dictionary = _Dictionary<_Model>;
 export declare type PackageOptions = Interfaces.IPackage;
 export declare type ContainerStructure<T extends Interfaces.IContainer = Interfaces.IContainer> = T;
 export declare type ContainerOptions<T extends ContainerStructure = ContainerStructure> = Interfaces.IContainerOptions<T>;
-export declare type Loader<T, P = any> = _Loader<T, P> & ((data: P) => Promise<T>);
+export declare type Loader<T, P = any> = _Loader<T, P> & _Loader<T, P>['start'];
 export declare type LoaderDone<T> = (result?: T) => void;
 export declare type ModelStructure<T extends ContainerModel> = {
     model: _Model & T['model'];

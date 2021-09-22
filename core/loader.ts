@@ -215,10 +215,12 @@ export class LoaderCase<T> {
     }
 }
 
+type LoaderSimplifyCallback<T, D, R> = (self: T, data: D) => Promise<R>
+
 export type LoaderSimplifyResponse<T, S, R> = (self: T, done: (result: R) => void, fail: (error: any) => void, params: S) => Promise<any>
 
-export const loaderSimplify = <T, S, R>(callback: (self: T, data: S) => Promise<R>) => {
-    let response = async(self: T, done: any, fail: any, params: S) => {
+export const loaderSimplify = <T, D, R>(callback: LoaderSimplifyCallback<T, D, R>) => {
+    let response = async(self: T, done: any, fail: any, params: D) => {
         try {
             let result = await callback(self, params)
             done(result)
@@ -226,7 +228,7 @@ export const loaderSimplify = <T, S, R>(callback: (self: T, data: S) => Promise<
             fail(error)
         }
     }
-    return response as LoaderSimplifyResponse<T, S, R>
+    return response as LoaderSimplifyResponse<T, D, R>
 }
 
 export type LoaderMethod<T, K, R, P> = K extends LoaderSimplifyResponse<any, any, any> ? LoaderSimplifyResponse<T, P, R> : (
@@ -242,6 +244,18 @@ export function create(target: any, type: Modes, options: { [key: string]: Loade
         loaders._items[key] = new Loader(type, target, key, options[key])
     }
     return loaders
+}
+
+/**
+ * 這是給外部比較彈性的 loader，例如不需要 model 的加載
+ */
+
+export function generateSimplifyLoader<
+    D,
+    R,
+    T extends LoaderSimplifyCallback<{}, D, R>
+>(handler: T) {
+    return new Loader('any', {}, handler.name, loaderSimplify(handler)) as Loader<R, D> & Loader<R, D>['start']
 }
 
 export default Loader

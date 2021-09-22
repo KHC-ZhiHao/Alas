@@ -182,3 +182,21 @@ list.on('error', (loader: Loader, context: { id: string }, error: any) => { ... 
 ```ts
 list.on('start', (loader: Loader, context: { id: string }) => { ... })
 ```
+
+## Extended
+
+Loader 本身是一個泛用性極高的物件，也可以透過靜態方法建立一組跳脫 Model 的 Simplify Loader，範例如下：
+
+```ts
+import { Alas } from 'alas'
+
+const myLoader = Alas.generateSimplifyLoader(async(context, params: {
+ username: string
+}) => {
+    let userId = await fetchUser(params.username)
+    return userId
+})
+
+myLoader({ username: 'dave' }).then(e => { ... })
+console.log(myLoader.called) // true
+```

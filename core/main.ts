@@ -12,7 +12,7 @@ import { MsPackage } from './ms-package'
 import { MakeModelOptions, EventCallback, RuleArray } from './types'
 import { Containers, ContainerOptions, PackageOptions, ModelOptions } from './index'
 import { Vue2Plugin, Vue3Plugin } from './vue'
-import { loaderSimplify } from './loader'
+import { loaderSimplify, generateSimplifyLoader } from './loader'
 
 type Params<C extends Containers> = {
     name?: string
@@ -58,6 +58,9 @@ class Main<T extends Containers = Containers> extends Base {
         }
     }
 
+    static loaderSimplify: typeof loaderSimplify
+    static generateSimplifyLoader: typeof generateSimplifyLoader
+
     static get Vue2Plugin() {
         return Vue2Plugin
     }
@@ -88,10 +91,6 @@ class Main<T extends Containers = Containers> extends Base {
 
     static get ListenerGroup() {
         return ListenerGroup
-    }
-
-    get loaderSimplify() {
-        return loaderSimplify
     }
 
     get utils() {
@@ -195,5 +194,7 @@ class Main<T extends Containers = Containers> extends Base {
 }
 
 Main.onDevError = Base.onDevError
+Main.loaderSimplify = loaderSimplify
+Main.generateSimplifyLoader = generateSimplifyLoader
 
 export default Main

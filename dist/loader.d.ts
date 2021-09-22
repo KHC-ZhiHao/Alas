@@ -66,10 +66,15 @@ export declare class LoaderCase<T> {
     _copyStatus(loaders: LoaderCase<any>): void;
     reset(): void;
 }
+declare type LoaderSimplifyCallback<T, D, R> = (self: T, data: D) => Promise<R>;
 export declare type LoaderSimplifyResponse<T, S, R> = (self: T, done: (result: R) => void, fail: (error: any) => void, params: S) => Promise<any>;
-export declare const loaderSimplify: <T, S, R>(callback: (self: T, data: S) => Promise<R>) => LoaderSimplifyResponse<T, S, R>;
+export declare const loaderSimplify: <T, D, R>(callback: LoaderSimplifyCallback<T, D, R>) => LoaderSimplifyResponse<T, D, R>;
 export declare type LoaderMethod<T, K, R, P> = K extends LoaderSimplifyResponse<any, any, any> ? LoaderSimplifyResponse<T, P, R> : (target: T, done: (result: R) => void, fail: (error: any) => void, params: P) => any;
 export declare function create(target: any, type: Modes, options?: {
     [key: string]: LoaderHandler;
 }): LoaderCase<any>;
+/**
+ * 這是給外部比較彈性的 loader，例如不需要 model 的加載
+ */
+export declare function generateSimplifyLoader<D, R, T extends LoaderSimplifyCallback<{}, D, R>>(handler: T): Loader<R, D> & ((params: D) => Promise<R>);
 export default Loader;

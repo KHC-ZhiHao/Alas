@@ -9,7 +9,7 @@ export declare type InterfaceSuppotrs = 'body' | 'views' | 'methods' | 'loaders'
 export declare type ContainerInterface = {
     [key in InterfaceSuppotrs]?: Array<string>;
 };
-export declare type Modes = 'status' | 'model' | 'list' | 'dictionary';
+export declare type Modes = 'status' | 'model' | 'list' | 'dictionary' | 'any';
 export declare type ListWriteOptions = {
     insert?: number;
 };

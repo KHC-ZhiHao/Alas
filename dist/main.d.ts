@@ -10,6 +10,7 @@ import ListenerGroup from './listener-group';
 import Status, { StatusOptions } from './status';
 import { MakeModelOptions, EventCallback, RuleArray } from './types';
 import { Containers, ContainerOptions, PackageOptions, ModelOptions } from './index';
+import { loaderSimplify, generateSimplifyLoader } from './loader';
 declare type Params<C extends Containers> = {
     name?: string;
     containers?: {
@@ -30,6 +31,8 @@ declare class Main<T extends Containers = Containers> extends Base {
     readonly _statuses: Status<any, any>[];
     readonly _globalContainer: Container;
     constructor(params?: Params<T>);
+    static loaderSimplify: typeof loaderSimplify;
+    static generateSimplifyLoader: typeof generateSimplifyLoader;
     static get Vue2Plugin(): {
         install(Vue: any, { alas }: {
             alas: Main<Containers>;
@@ -47,7 +50,6 @@ declare class Main<T extends Containers = Containers> extends Base {
     static get Dictionary(): typeof Dictionary;
     static get MsPackage(): import("./interfaces").IPackage;
     static get ListenerGroup(): typeof ListenerGroup;
-    get loaderSimplify(): <T_1, S, R>(callback: (self: T_1, data: S) => Promise<R>) => import("./loader").LoaderSimplifyResponse<T_1, S, R>;
     get utils(): typeof Utils;
     get name(): string;
     get locale(): string;
