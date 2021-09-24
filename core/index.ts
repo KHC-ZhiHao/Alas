@@ -56,6 +56,7 @@ export type ContainerTypes<G extends Containers> = {
 }
 
 module.exports = Main
+module.exports.Alas = Main
 
 export const Alas = Main
 
