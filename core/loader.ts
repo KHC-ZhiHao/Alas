@@ -88,22 +88,11 @@ class LoaderCore extends Base {
     }
 }
 
-class ExtensibleFunction extends Function {
-    constructor(f: (...args: any) => any) {
-        super()
-        return Object.setPrototypeOf(f, new.target.prototype)
-    }
-}
-
-class Loader<T, P = any> extends ExtensibleFunction {
-    start: (params: P) => Promise<T>
+class Loader<T, P = any> {
     _core: LoaderCore
     _result?: T
     _params?: P
     constructor(type: Modes, target: any, name: string, handler: LoaderHandler) {
-        const start = (params: P) => this._core.start(params)
-        super(start)
-        this.start = start
         this._core = new LoaderCore(this, type, target, name, handler)
     }
 
@@ -145,6 +134,10 @@ class Loader<T, P = any> extends ExtensibleFunction {
 
     off(channelName: string, id: string) {
         return this._core.event.off(channelName, id)
+    }
+
+    start(params: P): Promise<T> {
+        return this._core.start(params)
     }
 
     seek(params: P): Promise<T> {

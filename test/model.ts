@@ -36,26 +36,6 @@ describe('Model', () => {
         expect(user.$o.getNameSimple.done).to.equal(false)
     })
 
-    it('dir loader', function(done) {
-        let user = getUser('dave')
-        expect(user.$o.getName.called).to.equal(false)
-        user.$o.getName('my name is ')
-            .then((value) => {
-                expect(value).to.equal('my name is dave')
-                expect(user.$o.getName.result).to.equal('my name is dave')
-                expect(user.$o.getName.done).to.equal(true)
-                expect(user.$o.getName.called).to.equal(true)
-                expect(!!user.$loader.loading).to.equal(false)
-                expect(user.$o.getName.loading).to.equal(false)
-                done()
-            })
-        expect(user.$o.getName.called).to.equal(true)
-        expect(user.$o.getName.result).to.equal(null)
-        expect(user.$o.getName.loading).to.equal(true)
-        expect(!!user.$loader.loading).to.equal(true)
-        expect(user.$o.getName.done).to.equal(false)
-    })
-
     it('generate', function() {
         let user = getUser('dave')
         let newUser = user.$generate().$init({

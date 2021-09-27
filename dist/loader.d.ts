@@ -29,11 +29,7 @@ declare class LoaderCore extends Base {
     reset(): void;
     start(options: any): Promise<any>;
 }
-declare class ExtensibleFunction extends Function {
-    constructor(f: (...args: any) => any);
-}
-declare class Loader<T, P = any> extends ExtensibleFunction {
-    start: (params: P) => Promise<T>;
+declare class Loader<T, P = any> {
     _core: LoaderCore;
     _result?: T;
     _params?: P;
@@ -48,6 +44,7 @@ declare class Loader<T, P = any> extends ExtensibleFunction {
     on<T extends keyof Channels>(channelName: T, callback: EventCallback<Channels[T]>): string;
     once<T extends keyof Channels>(channelName: T, callback: EventCallback<Channels[T]>): string;
     off(channelName: string, id: string): void;
+    start(params: P): Promise<T>;
     seek(params: P): Promise<T>;
     reset(): void;
 }

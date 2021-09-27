@@ -18,7 +18,7 @@ describe('Main', () => {
             done()
         })
         expect(fetch.loading).to.equal(false)
-        fetch('hello')
+        fetch.start('hello')
         expect(fetch.loading).to.equal(true)
     })
 

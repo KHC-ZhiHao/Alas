@@ -45,8 +45,6 @@ const userOptions: ModelOptions<UserStructure> = {
 }
 // make user ...
 user.$o.fetch.start({ username: '123' }).then(result => console.log(typeof result)) // number
-// 可以簡化成以下例子，效力等同 .start()
-user.$o.fetch({ username: '123' }).then(result => console.log(typeof result)) // number
 ```
 
 ## Property
@@ -197,6 +195,6 @@ const myLoader = Alas.generateSimplifyLoader(async(context, params: {
     return userId
 })
 
-myLoader({ username: 'dave' }).then(e => { ... })
+myLoader.start({ username: 'dave' }).then(e => { ... })
 console.log(myLoader.called) // true
 ```

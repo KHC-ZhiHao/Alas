@@ -147,7 +147,7 @@ describe('Status', () => {
                 })
             }
         })
-        status.loaders.init(10).then(r => {
+        status.loaders.init.start(10).then(r => {
             expect(status.fetch('num').v).to.equal(10)
             done()
         })

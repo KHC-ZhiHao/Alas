@@ -1,3 +1,7 @@
+## ver 0.4.4
+
+1. Loader ExtensibleFunction 在雙向綁定上出了問題，移除這項功能。
+
 ## ver 0.4.3
 
 1. 修正無法從解構元中獲取核心的問題
