@@ -1,3 +1,7 @@
+## ver 0.4.5
+
+1. Status Reset All 可以透過 withLoader 重置 loader 狀態
+
 ## ver 0.4.4
 
 1. Loader ExtensibleFunction 在雙向綁定上出了問題，移除這項功能。

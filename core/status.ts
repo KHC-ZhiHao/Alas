@@ -39,7 +39,7 @@ class Status <
     readonly _id = Utils.generateId()
     readonly _name: string
     readonly _states: any = {}
-    readonly _loaders: any
+    readonly _loaders: Loader.LoaderCase<any>
     private _options: O
     private _event = new Event('status')
 
@@ -123,10 +123,15 @@ class Status <
         this._event.emit(this, 'reset', [{ name }])
     }
 
-    resetAll() {
+    resetAll(params?: {
+        withLoader: boolean
+    }) {
         let keys = Object.keys(this._options.states)
         for (let key of keys) {
             this.reset(key)
+        }
+        if (params?.withLoader) {
+            this._loaders.reset()
         }
     }
 }

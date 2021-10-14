@@ -72,6 +72,26 @@ describe('Status', () => {
         expect(status.fetch('num').v).to.equal(0)
     })
 
+    it('resetAllWithLoader', async function() {
+        let alas = new Main()
+        let status = alas.registerStatus('', {
+            states: {},
+            loaders: {
+                init: (self, done, fail) => {
+                    done()
+                }
+            }
+        })
+        await status.loaders.init.start()
+        expect(status.loaders.init.called).to.equal(true)
+        status.resetAll()
+        expect(status.loaders.init.called).to.equal(true)
+        status.resetAll({
+            withLoader: true
+        })
+        expect(status.loaders.init.called).to.equal(false)
+    })
+
     it('origin state', function() {
         let alas = new Main()
         let status = alas.registerStatus('', {
