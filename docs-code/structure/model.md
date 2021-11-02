@@ -176,7 +176,7 @@ let user = {
 
 // ...
 
-console.log(user.attributes.size) // 0
+console.log(user.lattributes.size) // 0
 ```
 
 ### init
