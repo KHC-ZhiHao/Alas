@@ -23,6 +23,9 @@ type UserStructure = ModelStructure<{
             fetch: Loader<number, {
                 username: string
             }>
+            fetchSimple: Loader<number, {
+                username: string
+            }>
         }
     }
 }>
@@ -125,7 +128,7 @@ loader.off = function(eventName: string, listenerId: string) => void
 
 ### start
 
-執行 handle。
+執行 Handler。
 
 ```ts
 loader.start = function(data: any) => Promise<any>
@@ -133,7 +136,7 @@ loader.start = function(data: any) => Promise<any>
 
 ### seek
 
-執行 handle。，如果已經執行過則直接回傳結果，如果正在執行中就等待該次執行執行完畢。
+執行 Handler，如果已經執行過則直接回傳結果，如果正在執行中就等待該次執行執行完畢。
 
 ```ts
 loader.seek = function(data: any) => Promise<any>
