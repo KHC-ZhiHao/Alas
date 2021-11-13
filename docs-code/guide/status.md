@@ -174,12 +174,12 @@ export default defineComponent({
 
 ## 重製狀態
 
-State 可以隨時重製成宣告時的樣子，你可以在各種層級的 path 中定義自己個別的狀態，減輕 root status 的負擔，使程式碼更加清潔可控：
+Status 可以隨時重置成最初宣告時的樣子，你可以在各種層級的 path 中定義自己個別的狀態，減輕 root status 的負擔，使程式碼更加清潔可控：
 
-### 假設我們存在這樣的 Route
+### 假設我們存在這樣的 Vue Route
 
 ```js
-const routes: Array<RouteRecordRaw> = [
+const routes = [
     {
         path: 'users/:user',
         component: () => import('./users/main.vue'),

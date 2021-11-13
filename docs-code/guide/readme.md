@@ -103,7 +103,7 @@ const userModel = {
     let alas = new Alas()
     // 將定義好的結構註冊進 Alas
     alas.addModel('user', userModel)
-    // 可以將 make 是做 new 的行為
+    // 可以將 make 視作 new 的行為
     let user = alas.make('*', 'user')
     user.$o.fetch('james').start.then(() => {
         document.getElementById('username').innerText = '名稱:' + user.name

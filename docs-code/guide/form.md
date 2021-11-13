@@ -166,7 +166,7 @@ export default defineComponent({
         const sync = () => {
             if (props.user) {
                 // 我們不能在 component 中直接修改 prop 的值，但可以直接複製一份而不需要再發送一次請求。
-                state.user = props.$copy()
+                state.user = props.user.$copy()
             } else {
                 // 如果沒有帶入 model 則新增一組新的
                 state.user = alas.make('*', 'user').$init()
@@ -176,7 +176,7 @@ export default defineComponent({
             let validate = state.user.validate()
             if (validate.success) {
                 // 如果驗證成功可以把資料送出，完成整個表單的任務
-                context.emit('submit', state.user)
+                context.emit('submit', state.user.$copy())
             } else [
                 alert('表單驗證有誤')
             ]
