@@ -22,7 +22,8 @@ describe('Main', () => {
         expect(fetch.loading).to.equal(true)
     })
 
-    it('generateSimplifyLoader Error', function(done) {
+    it('generateSimplifyLoader Error', async function() {
+        let flag = false
         let fetch = Main.generateSimplifyLoader(async(context, data: string) => {
             await new Promise(resolve => {
                 setTimeout(() => resolve(null), 100)
@@ -32,11 +33,14 @@ describe('Main', () => {
         fetch.on('error', () => {
             expect(fetch.loading).to.equal(false)
             expect(fetch.error).to.equal('error')
-            done()
+            flag = true
         })
-        expect(fetch.loading).to.equal(false)
-        fetch.start('hello')
-        expect(fetch.loading).to.equal(true)
+        try {
+            await fetch.start('hello')
+        } catch (error) {
+            // error
+        }
+        expect(flag).to.equal(true)
     })
 
     it('setLocal', function() {
