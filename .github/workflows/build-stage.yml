@@ -20,6 +20,3 @@ jobs:
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: micnncim/action-lgtm-reaction@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
