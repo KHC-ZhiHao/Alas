@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Container | ALAS Guide</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="shortcut icon" href="/Alas/images/logo.ico">
+    <meta name="description" content="資源狀態管理工具">
+    
+    <link rel="preload" href="/Alas/assets/css/0.styles.35608b25.css" as="style"><link rel="preload" href="/Alas/assets/js/app.b8a7ec08.js" as="script"><link rel="preload" href="/Alas/assets/js/2.d1cd256c.js" as="script"><link rel="preload" href="/Alas/assets/js/15.c785a085.js" as="script"><link rel="prefetch" href="/Alas/assets/js/10.7f9362cd.js"><link rel="prefetch" href="/Alas/assets/js/11.18cfb0f2.js"><link rel="prefetch" href="/Alas/assets/js/12.6d5fb5c7.js"><link rel="prefetch" href="/Alas/assets/js/13.bd841850.js"><link rel="prefetch" href="/Alas/assets/js/14.e9139be0.js"><link rel="prefetch" href="/Alas/assets/js/16.431dd475.js"><link rel="prefetch" href="/Alas/assets/js/17.63bd0fee.js"><link rel="prefetch" href="/Alas/assets/js/18.c2153314.js"><link rel="prefetch" href="/Alas/assets/js/19.4a855a88.js"><link rel="prefetch" href="/Alas/assets/js/20.079c9012.js"><link rel="prefetch" href="/Alas/assets/js/21.2f09481c.js"><link rel="prefetch" href="/Alas/assets/js/22.1514743f.js"><link rel="prefetch" href="/Alas/assets/js/23.798b995b.js"><link rel="prefetch" href="/Alas/assets/js/24.b7e44383.js"><link rel="prefetch" href="/Alas/assets/js/3.f37f36ab.js"><link rel="prefetch" href="/Alas/assets/js/4.4780db6d.js"><link rel="prefetch" href="/Alas/assets/js/5.6322df46.js"><link rel="prefetch" href="/Alas/assets/js/6.6674af55.js"><link rel="prefetch" href="/Alas/assets/js/7.c167719e.js"><link rel="prefetch" href="/Alas/assets/js/8.4acf38b4.js"><link rel="prefetch" href="/Alas/assets/js/9.3e43e69a.js">
+    <link rel="stylesheet" href="/Alas/assets/css/0.styles.35608b25.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/Alas/" class="home-link router-link-active"><!----> <span class="site-name">ALAS Guide</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/Alas/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><a href="/Alas/structure/" class="nav-link router-link-active">
+  結構與操作
+</a></div><div class="nav-item"><a href="https://github.com/KHC-ZhiHao/Alas" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://github.com/KHC-ZhiHao/Alas/tree/master/example/vue" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Example
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/Alas/guide/" class="nav-link">
+  指南
+</a></div><div class="nav-item"><a href="/Alas/structure/" class="nav-link router-link-active">
+  結構與操作
+</a></div><div class="nav-item"><a href="https://github.com/KHC-ZhiHao/Alas" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div><div class="nav-item"><a href="https://github.com/KHC-ZhiHao/Alas/tree/master/example/vue" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Example
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/Alas/structure/" aria-current="page" class="sidebar-link">結構</a></li><li><a href="/Alas/structure/core.html" class="sidebar-link">Core</a></li><li><a href="/Alas/structure/container.html" aria-current="page" class="active sidebar-link">Container</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Alas/structure/container.html#types" class="sidebar-link">Types</a></li><li class="sidebar-sub-header"><a href="/Alas/structure/container.html#options" class="sidebar-link">Options</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/Alas/structure/container.html#models" class="sidebar-link">models</a></li><li class="sidebar-sub-header"><a href="/Alas/structure/container.html#config" class="sidebar-link">config</a></li><li class="sidebar-sub-header"><a href="/Alas/structure/container.html#install" class="sidebar-link">install</a></li><li class="sidebar-sub-header"><a href="/Alas/structure/container.html#rules" class="sidebar-link">rules</a></li><li class="sidebar-sub-header"><a href="/Alas/structure/container.html#locales" class="sidebar-link">locales</a></li></ul></li></ul></li><li><a href="/Alas/structure/model.html" class="sidebar-link">Model</a></li><li><a href="/Alas/structure/list.html" class="sidebar-link">List</a></li><li><a href="/Alas/structure/dictionary.html" class="sidebar-link">Dictionary</a></li><li><a href="/Alas/structure/status.html" class="sidebar-link">Status</a></li><li><a href="/Alas/structure/loader.html" class="sidebar-link">Loader</a></li><li><a href="/Alas/structure/package.html" class="sidebar-link">Package &amp; Rule &amp; Locale</a></li><li><a href="/Alas/structure/utils.html" class="sidebar-link">Utils</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="container"><a href="#container" class="header-anchor">#</a> Container</h1> <p>Container 是一種分類模式，可能是一個資料庫、也有可能是一種雲端服務等的資料群組的載體，最主要的功用即是裝載 Model。</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token comment">// 定義好 Model 結構</span>
+<span class="token keyword">const</span> profileModel <span class="token operator">=</span> <span class="token punctuation">{</span>
+    body<span class="token operator">:</span> <span class="token punctuation">{</span>
+        name<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 將 Model 註冊進 Container</span>
+<span class="token keyword">const</span> userContainer <span class="token operator">=</span> <span class="token punctuation">{</span>
+    models<span class="token operator">:</span> <span class="token punctuation">{</span>
+        profile<span class="token operator">:</span> profileModel
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 將 Container 註冊進 Alas</span>
+<span class="token keyword">const</span> alas <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Alas</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    containers<span class="token operator">:</span> <span class="token punctuation">{</span>
+        user<span class="token operator">:</span> userContainer
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">// 指定實體化 user container 的 profile model</span>
+<span class="token keyword">const</span> profile <span class="token operator">=</span> alas<span class="token punctuation">.</span><span class="token function">make</span><span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">,</span> <span class="token string">'profile'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">$init</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">'james'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>profile<span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token comment">// james</span>
+</code></pre></div><p>該設計本身是很重要的部分是專案的遷移，在複數專案指向同一個 API 的時候，這些 Model 只要跟著 Container 複製到另一個專案或是託管至套件管理工具( 如 npm )，就可以建立一種隨開即用的開發模式。</p> <h3 id="與外部的資料交換"><a href="#與外部的資料交換" class="header-anchor">#</a> 與外部的資料交換</h3> <p>既然 Container 允許我們跨專案複製，意味著必須要有外部接口提供個專案的自定義環境，以下範例是假如我們必須為每位 User 注入專案所在的地區：</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">const</span> profileModel <span class="token operator">=</span> <span class="token punctuation">{</span>
+    body<span class="token operator">:</span> <span class="token punctuation">{</span>
+        name<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        location<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">init</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> <span class="token punctuation">{</span> name <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span>
+            name<span class="token punctuation">,</span>
+            <span class="token comment">// self.$config 指向 container config</span>
+            location<span class="token operator">:</span> self<span class="token punctuation">.</span>$config<span class="token punctuation">.</span>location
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> userContainer <span class="token operator">=</span> <span class="token punctuation">{</span>
+    models<span class="token operator">:</span> <span class="token punctuation">{</span>
+        profile<span class="token operator">:</span> profileModel
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// 在註冊 Core 之前，可以定義預設的 Config 數值</span>
+    config<span class="token operator">:</span> <span class="token punctuation">{</span>
+        location<span class="token operator">:</span> <span class="token string">'us'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// 在註冊進入 Core 之後就會執行 install 並獲取註冊端的 option</span>
+    <span class="token function">install</span><span class="token punctuation">(</span>core<span class="token punctuation">,</span> config<span class="token punctuation">,</span> options<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>options<span class="token punctuation">.</span>location<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            config<span class="token punctuation">.</span>location <span class="token operator">=</span> options<span class="token punctuation">.</span>location
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> alas <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Alas</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    containers<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 使用 Array 作為參數可以提供 options 給 install 的對象</span>
+        user<span class="token operator">:</span> <span class="token punctuation">[</span>userContainer<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+            location<span class="token operator">:</span> <span class="token string">'tw'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> profile <span class="token operator">=</span> alas<span class="token punctuation">.</span><span class="token function">make</span><span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">,</span> <span class="token string">'profile'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">$init</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">'james'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>profile<span class="token punctuation">.</span>location<span class="token punctuation">)</span> <span class="token comment">// tw</span>
+</code></pre></div><h3 id="指定實作對象"><a href="#指定實作對象" class="header-anchor">#</a> 指定實作對象</h3> <p>Interface 參數的目的是在位於這個 Container 內的 Model 必須實作那些方法，如果沒有實作，將在註冊時發出錯誤並註冊失敗：</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">const</span> profileModel <span class="token operator">=</span> <span class="token punctuation">{</span>
+    body<span class="token operator">:</span> <span class="token punctuation">{</span>
+        name<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> userContainer <span class="token operator">=</span> <span class="token punctuation">{</span>
+    models<span class="token operator">:</span> <span class="token punctuation">{</span>
+        profile<span class="token operator">:</span> profileModel
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// 指定底下 Model 必須實作指定的參數或名稱，目前涵蓋以下四種結構</span>
+    <span class="token keyword">interface</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        body<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        views<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        methods<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        loaders<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> alas <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Alas</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    containers<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 這段程式碼會在執行期間擲出錯誤，因為 body 沒有 age 屬性</span>
+        user<span class="token operator">:</span> userContainer
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h3 id="共用規則與語系"><a href="#共用規則與語系" class="header-anchor">#</a> 共用規則與語系</h3> <p>在 Container 可以定義自己的驗證規則與語系，使轉移專案更加方便。</p> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">const</span> profileModel <span class="token operator">=</span> <span class="token punctuation">{</span>
+    body<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 會員資料的名稱只能是英文</span>
+        name<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'onlyEnglish'</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> container <span class="token operator">=</span> <span class="token punctuation">{</span>
+    models<span class="token operator">:</span> <span class="token punctuation">{</span>
+        profile<span class="token operator">:</span> profileModel
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// 定義驗證規則</span>
+    rules<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token function-variable function">onlyEnglish</span><span class="token operator">:</span> <span class="token punctuation">(</span>model<span class="token punctuation">,</span> value<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^[a-zA-Z]+$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token boolean">true</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> model<span class="token punctuation">.</span><span class="token function">$meg</span><span class="token punctuation">(</span><span class="token string">'onlyEnglish'</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// 定義自有的語系</span>
+    locales<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token string">'zh-tw'</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            onlyEnglish<span class="token operator">:</span> <span class="token string">'只能是英文'</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token string">'en-us'</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            onlyEnglish<span class="token operator">:</span> <span class="token string">'Only English'</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> alas <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Alas</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    containers<span class="token operator">:</span> <span class="token punctuation">{</span>
+        user<span class="token operator">:</span> userContainer
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment">// 顯示的語系隨著 Core 本身定義顯示</span>
+alas<span class="token punctuation">.</span><span class="token function">setLocale</span><span class="token punctuation">(</span><span class="token string">'tw'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> profile <span class="token operator">=</span> alas<span class="token punctuation">.</span><span class="token function">make</span><span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">,</span> <span class="token string">'profile'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">$init</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token string">'詹姆士'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>profile<span class="token punctuation">.</span><span class="token function">$validateBy</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// 只能是英文</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> containerOptions <span class="token operator">=</span> <span class="token punctuation">{</span>
+    models<span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> alas <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Alas</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    container<span class="token operator">:</span> <span class="token punctuation">{</span>
+        myContainer<span class="token operator">:</span> containerOptions
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="types"><a href="#types" class="header-anchor">#</a> Types</h2> <div class="language-ts extra-class"><pre class="language-ts"><code><span class="token keyword">import</span> Alas<span class="token punctuation">,</span> <span class="token punctuation">{</span> ContainerStructure<span class="token punctuation">,</span> ContainerOptions<span class="token punctuation">,</span> ModelStructure <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'alas'</span>
+<span class="token keyword">type</span> <span class="token class-name">UserContainerStructure</span> <span class="token operator">=</span> ContainerStructure<span class="token operator">&lt;</span><span class="token punctuation">{</span>
+    models<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token punctuation">[</span>key<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">]</span><span class="token operator">:</span> ModelStructure
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+
+<span class="token keyword">const</span> userOptions<span class="token operator">:</span> ContainerOptions<span class="token operator">&lt;</span>UserContainerStructure<span class="token operator">&gt;</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    models<span class="token operator">:</span> <span class="token punctuation">{</span>
+        user<span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">type</span> <span class="token class-name">Containers</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+    user<span class="token operator">:</span> UserContainerStructure
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> alas <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Alas<span class="token operator">&lt;</span>Containers<span class="token operator">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    containers<span class="token operator">:</span> <span class="token punctuation">{</span>
+        user<span class="token operator">:</span> userOptions
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="options"><a href="#options" class="header-anchor">#</a> Options</h2> <h3 id="models"><a href="#models" class="header-anchor">#</a> models</h3> <p>Container 底下所有的 Model。</p> <ul><li>type: <code>{ [key: string]: ModelOptions }</code></li> <li>required: <code>false</code></li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> myModel <span class="token operator">=</span> <span class="token punctuation">{</span>
+    body<span class="token operator">:</span> <span class="token punctuation">{</span>
+        attr<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> containerOptions <span class="token operator">=</span> <span class="token punctuation">{</span>
+    models<span class="token operator">:</span> <span class="token punctuation">{</span>
+        myModel
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="config"><a href="#config" class="header-anchor">#</a> config</h3> <p>提供給底下 Model 統一參照的物件。</p> <ul><li>type: <code>{ [key: string]: any }</code></li> <li>required: <code>false</code></li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> myModel <span class="token operator">=</span> <span class="token punctuation">{</span>
+    body<span class="token operator">:</span> <span class="token punctuation">{</span>
+        amount<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    views<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token function-variable function">amount</span><span class="token operator">:</span> <span class="token parameter">self</span> <span class="token operator">=&gt;</span> self<span class="token punctuation">.</span>amount <span class="token operator">*</span> self<span class="token punctuation">.</span>$config<span class="token punctuation">.</span>exchangeRate
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> containerOptions <span class="token operator">=</span> <span class="token punctuation">{</span>
+    config<span class="token operator">:</span> <span class="token punctuation">{</span>
+        exchangeRate<span class="token operator">:</span> <span class="token number">2</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="install"><a href="#install" class="header-anchor">#</a> install</h3> <p>與外部進行資料交換的方法。</p> <ul><li>type: <code>(core: Alas, config: ContainerOptionsConfig, options: any) =&gt; any</code></li> <li>required: <code>false</code></li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> containerOptions <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token function">install</span><span class="token punctuation">(</span><span class="token parameter">core<span class="token punctuation">,</span> config<span class="token punctuation">,</span> options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="rules"><a href="#rules" class="header-anchor">#</a> rules</h3> <p>定義專屬規則。</p> <ul><li>type: <code>{ [key: string]: RuleHandler }</code></li> <li>required: <code>false</code></li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> myModel <span class="token operator">=</span> <span class="token punctuation">{</span>
+    body<span class="token operator">:</span> <span class="token punctuation">{</span>
+        amount<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'int'</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> containerOptions <span class="token operator">=</span> <span class="token punctuation">{</span>
+    rules<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token function">int</span><span class="token punctuation">(</span><span class="token parameter">model<span class="token punctuation">,</span> value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> value<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token string">'必須為整數'</span> <span class="token operator">:</span> <span class="token boolean">true</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="locales"><a href="#locales" class="header-anchor">#</a> locales</h3> <p>定義專屬語系。</p> <ul><li>type: <code>{ [key: string]: { [locale: string]: string } }</code></li> <li>required: <code>false</code></li></ul> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> myModel <span class="token operator">=</span> <span class="token punctuation">{</span>
+    body<span class="token operator">:</span> <span class="token punctuation">{</span>
+        amount<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'int'</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    views<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token function-variable function">amount</span><span class="token operator">:</span> <span class="token parameter">self</span> <span class="token operator">=&gt;</span> self<span class="token punctuation">.</span>amount <span class="token operator">+</span> self<span class="token punctuation">.</span><span class="token function">$meg</span><span class="token punctuation">(</span><span class="token string">'amount'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> containerOptions <span class="token operator">=</span> <span class="token punctuation">{</span>
+    locales<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token string">'en-us'</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token string">'amount'</span><span class="token operator">:</span> <span class="token string">'金額'</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Alas/structure/core.html" class="prev">
+        Core
+      </a></span> <span class="next"><a href="/Alas/structure/model.html">
+        Model
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/Alas/assets/js/app.b8a7ec08.js" defer></script><script src="/Alas/assets/js/2.d1cd256c.js" defer></script><script src="/Alas/assets/js/15.c785a085.js" defer></script>
+  </body>
+</html>
