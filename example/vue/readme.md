@@ -11,5 +11,4 @@ npm run serve
 
 ## 使用的開放 API
 
-https://agridata.coa.gov.tw/api.aspx
-https://data.coa.gov.tw/Query/ServiceDetail.aspx?id=037
+[行政院農業委員會資料開放平台](https://data.coa.gov.tw/api.aspx)

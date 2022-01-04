@@ -2,6 +2,7 @@
 
 1. Status Reset All 可以透過 withLoader 參數重置所有 loader 狀態
 2. 修改文件上的錯誤
+3. 新的 CI/CD
 
 ## ver 0.4.4
 

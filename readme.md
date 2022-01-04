@@ -6,25 +6,32 @@
 <h3 align="center">View Model Library</h3>
 
 <p align="center">
-    <a href="https://www.npmjs.com/package/alas"><img src="https://img.shields.io/npm/v/alas.svg"></a>
-    <a href="https://travis-ci.org/KHC-ZhiHao/Alas">
-    <img src="https://travis-ci.org/KHC-ZhiHao/Alas.svg?branch=master" alt="travis-ci"  style="max-width:100%;">
+    <a href="https://www.npmjs.com/package/alas">
+        <img src="https://img.shields.io/npm/v/alas.svg">
+    </a>
+    <a href='https://github.com/KHC-ZhiHao/Alas/actions'>
+        <img src='https://github.com/KHC-ZhiHao/Alas/actions/workflows/build-stage.yml/badge.svg'/>
     </a>
     <a href="https://coveralls.io/github/KHC-ZhiHao/Alas?branch=master">
-        <img src="https://coveralls.io/repos/github/KHC-ZhiHao/Alas/badge.svg?branch=master" alt="Coverage Status"  style="max-width:100%;">
+        <img src="https://coveralls.io/repos/github/KHC-ZhiHao/Alas/badge.svg?branch=master" style="max-width:100%;">
+    </a>
+    <a href="https://lgtm.com/projects/g/KHC-ZhiHao/Alas/context:javascript">
+        <img src="https://img.shields.io/lgtm/grade/javascript/g/KHC-ZhiHao/Alas.svg?logo=lgtm&logoWidth=18"/>
     </a>
     <a href="https://standardjs.com/">
-        <img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" alt="Standard Code Style"  style="max-width:100%;">
+        <img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" style="max-width:100%;">
     </a>
-    <a href="https://github.com/KHC-ZhiHao/Alas"><img src="https://img.shields.io/github/stars/KHC-ZhiHao/Alas.svg?style=social"></a>
+    <a href="https://github.com/KHC-ZhiHao/Alas">
+        <img src="https://img.shields.io/github/stars/KHC-ZhiHao/Alas.svg?style=social">
+    </a>
     <br>
 </p>
 
 <br>
 
-## Summary
+在此我們只提供簡易說明，詳細介紹 [技術文件](https://khc-zhihao.github.io/Alas/) 中得知。
 
-[文件](https://khc-zhihao.github.io/Alas/)
+## Summary
 
 #### 為了UI/UX而生
 

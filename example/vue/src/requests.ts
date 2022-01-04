@@ -2,7 +2,7 @@ import qs from 'qs'
 import Axios, { AxiosResponse } from 'axios'
 
 const axios = Axios.create({
-    baseURL: 'https://agridata.coa.gov.tw/api/v1/'
+    baseURL: 'https://data.coa.gov.tw/api/v1'
 })
 
 // 農產交易系統是以民國為主，因此需要把西元年轉民國年

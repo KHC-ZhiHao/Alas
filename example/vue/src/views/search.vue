@@ -1,6 +1,9 @@
 <template>
     <div class="p-3">
         <div class="p-3 mx-auto search-form">
+            <div class="text-center pb-4">
+                <img class="max-width: 100px" src="/logo.png">
+            </div>
             <h3 class="text-center">蔬果交易搜尋系統</h3>
             <div class="text-center pb-2">Alas With Vue Example</div>
             <my-text-field

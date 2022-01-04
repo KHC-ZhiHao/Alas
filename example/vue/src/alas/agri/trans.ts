@@ -54,7 +54,7 @@ export const Trans: ModelOptions<Trans> = {
      * 可以透過 init 攔截 source data 來統一開發介面
      */
 
-    init(self, source = {}) {
+    init(self, source: any = {}) {
         return {
             transDate: source.TransDate,
             cropCode: source.CropCode,

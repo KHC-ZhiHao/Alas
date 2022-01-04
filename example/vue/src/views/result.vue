@@ -47,8 +47,8 @@
 
 <script lang="ts">
 import { self } from '@/self'
-import { alas, AlasTypes } from '@/alas'
 import { rootStatus } from '@/root-status'
+import { alas, AlasTypes } from '@/alas'
 import { defineComponent, onMounted } from 'vue'
 export default defineComponent({
     name: 'result',
