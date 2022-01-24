@@ -15,6 +15,9 @@ export type Structure = ModelStructure<{
         name: string
         children: Structure['list']
         attributes: Attributes.Structure['model']
+        $v: {
+            name: string
+        }
         $m: {
             getAge: () => number
             getName: (prefix: string) => string
@@ -23,6 +26,18 @@ export type Structure = ModelStructure<{
             getName: Loader<string, string>
             getError: Loader<string, string>
             getNameSimple: Loader<string, string>
+        }
+    }
+    list: {
+        v: {
+            size: number
+        }
+        m: {
+            getSize: (add: number) => number
+        },
+        o: {
+            getSize: Loader<string, string>
+            getError: Loader<string, string>
         }
     }
 }>
@@ -111,10 +126,10 @@ export const options: ModelOptions<Structure> = {
             }
         },
         loaders: {
-            getSize(self, resolve, reject, prefix) {
+            getSize(self, resolve, reject, prefix = '') {
                 setTimeout(() => resolve(prefix + self.size), 50)
             },
-            getError(self, resolve, reject, prefix) {
+            getError(self, resolve, reject, prefix = '') {
                 setTimeout(() => reject(prefix + self.size), 50)
             }
         }

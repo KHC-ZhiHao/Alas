@@ -29,6 +29,7 @@ describe('Status', () => {
         })
         //@ts-ignore
         expect(status.fetch('user').name).to.equal('dave')
+        //@ts-ignore
         expect(status.fetch('user').$v.myName).to.equal('dave')
     })
 

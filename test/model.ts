@@ -8,9 +8,6 @@ function getUser(name: string) {
         user: User.Structure
     }>()
     main.addContainer('user', User.Container)
-    let a = main.make('user', 'user')
-    let b = a.$init()
-    b.name
     return main.make('user', 'user').$init({
         Name: name
     })
@@ -422,7 +419,9 @@ describe('Model', () => {
             }
         })
         let test = main.make('test', 'test')
+        //@ts-ignore
         expect(test.$v.test).to.equal('test')
+        //@ts-ignore
         expect(test.$v.test2).to.equal('test2')
     })
 

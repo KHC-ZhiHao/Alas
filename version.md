@@ -1,3 +1,8 @@
+## ver 0.4.6
+
+1. 修正 init 的型態驗證錯誤問題。
+2. 強化型態驗證。
+
 ## ver 0.4.5
 
 1. Status Reset All 可以透過 withLoader 參數重置所有 loader 狀態

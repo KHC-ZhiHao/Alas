@@ -56,15 +56,15 @@ export class Group {
     }
 
     get v() {
-        return this._unit.views
+        return this._unit.views as {}
     }
 
     get m() {
-        return this._unit.methods
+        return this._unit.methods as {}
     }
 
     get o() {
-        return this._unit.loaders._items
+        return this._unit.loaders._items as {}
     }
 
     get loader() {

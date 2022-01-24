@@ -9,13 +9,9 @@ declare class Model {
         [key: string]: any;
     };
     constructor(model: ModelUnit);
-    get $v(): import("./types").Views;
-    get $o(): {
-        [key: string]: import("./loader").default<any, any>;
-    };
-    get $m(): {
-        [key: string]: (...params: any) => any;
-    };
+    get $v(): {};
+    get $o(): {};
+    get $m(): {};
     get $loader(): import("./loader").LoaderCase<any>;
     get $config(): any;
     get $utils(): typeof Utils;
@@ -40,7 +36,7 @@ declare class Model {
     $profile(): any;
     $export(): any;
     $reload(data: any): void;
-    $generate(options?: MakeModelOptions): Model;
+    $generate(options?: MakeModelOptions): this;
     $isChange(key?: keyof Omit<this, keyof Model>): boolean;
     $validate(): {
         result: {

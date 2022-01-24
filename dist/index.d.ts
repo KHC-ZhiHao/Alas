@@ -18,24 +18,12 @@ export declare type Dictionary = _Dictionary<_Model>;
 export declare type PackageOptions = Interfaces.IPackage;
 export declare type ContainerStructure<T extends Interfaces.IContainer = Interfaces.IContainer> = T;
 export declare type ContainerOptions<T extends ContainerStructure = ContainerStructure> = Interfaces.IContainerOptions<T>;
-export declare type Loader<T, P = any> = _Loader<T, P> & _Loader<T, P>['start'];
+export declare type Loader<T, P = any> = _Loader<T, P>;
 export declare type LoaderDone<T> = (result?: T) => void;
 export declare type ModelStructure<T extends ContainerModel> = {
-    model: _Model & {
-        $m: {};
-        $v: {};
-        $o: {};
-    } & T['model'];
-    list: _List<_Model & T['model']> & {
-        m: {};
-        v: {};
-        o: {};
-    } & T['list'];
-    dictionary: _Dictionary<_Model & T['model']> & {
-        m: {};
-        v: {};
-        o: {};
-    } & T['dictionary'];
+    model: _Model & T['model'];
+    list: _List<_Model & T['model']> & T['list'];
+    dictionary: _Dictionary<_Model & T['model']> & T['dictionary'];
 };
 export declare type ModelOptions<T extends ModelStructure<any>> = Interfaces.IModelOptions<T['model'], T['list'], T['dictionary']>;
 export declare type Containers = {

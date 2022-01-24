@@ -36,13 +36,9 @@ export declare class Group {
     _unit: GroupUnit;
     constructor(unit: GroupUnit);
     get dirty(): boolean;
-    get v(): Types.Views;
-    get m(): {
-        [key: string]: (...parmas: any) => any;
-    };
-    get o(): {
-        [key: string]: import("./loader").default<any, any>;
-    };
+    get v(): {};
+    get m(): {};
+    get o(): {};
     get loader(): LoaderCase<any>;
     get config(): any;
     get utils(): typeof Utils;

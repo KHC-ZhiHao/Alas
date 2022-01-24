@@ -13,15 +13,15 @@ class Model {
     }
 
     get $v() {
-        return this._model.views
+        return this._model.views as {}
     }
 
     get $o() {
-        return this._model.loaders._items
+        return this._model.loaders._items as {}
     }
 
     get $m() {
-        return this._model.methods
+        return this._model.methods as {}
     }
 
     get $loader() {
@@ -113,8 +113,8 @@ class Model {
         return this._model.reload(data)
     }
 
-    $generate(options?: MakeModelOptions) {
-        return this._container.core.main.make(this._container.name , this._model.base.name, options)
+    $generate(options?: MakeModelOptions): this {
+        return this._container.core.main.make(this._container.name , this._model.base.name, options) as this
     }
 
     $isChange(key?: keyof Omit<this, keyof Model>): boolean {

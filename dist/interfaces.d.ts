@@ -58,10 +58,10 @@ export interface IModelOptions<M extends ModelBase, L extends ListBase<M> = List
         [key in keyof M['$v']]: (self: M) => M['$v'][key];
     };
     methods?: {
-        [key in keyof M['$m']]: (self: M, ...parmas: Parameters<M['$m'][key]>) => ReturnType<M['$m'][key]>;
+        [key in keyof M['$m']]: M['$m'][key] extends (...params: any) => any ? (self: M, ...parmas: Parameters<M['$m'][key]>) => ReturnType<M['$m'][key]> : never;
     };
     loaders?: {
-        [key in keyof M['$o']]: Loader.LoaderMethod<M, M['$o'], M['$o'][key]['_result'], M['$o'][key]['_params']>;
+        [key in keyof M['$o']]: M['$o'][key] extends Loader.default<any, any> ? Loader.LoaderMethod<M, M['$o'], M['$o'][key]['_result'], M['$o'][key]['_params']> : never;
     };
     list?: {
         key?: (model: M) => string;
@@ -71,10 +71,10 @@ export interface IModelOptions<M extends ModelBase, L extends ListBase<M> = List
             [key in keyof L['v']]: (list: L) => L['v'][key];
         };
         methods?: {
-            [key in keyof L['m']]: (list: L, ...parmas: Parameters<L['m'][key]>) => ReturnType<L['m'][key]>;
+            [key in keyof L['m']]: L['m'][key] extends (...params: any) => any ? (list: L, ...parmas: Parameters<L['m'][key]>) => ReturnType<L['m'][key]> : never;
         };
         loaders?: {
-            [key in keyof L['o']]: Loader.LoaderMethod<L, L['o'], L['o'][key]['_result'], L['o'][key]['_params']>;
+            [key in keyof L['o']]: L['o'][key] extends Loader.default<any, any> ? Loader.LoaderMethod<L, L['o'], L['o'][key]['_result'], L['o'][key]['_params']> : never;
         };
     };
     dictionary?: {
@@ -82,10 +82,10 @@ export interface IModelOptions<M extends ModelBase, L extends ListBase<M> = List
             [key in keyof D['v']]: (self: D) => any;
         };
         methods?: {
-            [key in keyof D['m']]: (self: D, ...parmas: Parameters<D['m'][key]>) => ReturnType<D['m'][key]>;
+            [key in keyof D['m']]: D['m'][key] extends (...params: any) => any ? (self: D, ...parmas: Parameters<D['m'][key]>) => ReturnType<D['m'][key]> : never;
         };
         loaders?: {
-            [key in keyof D['o']]: Loader.LoaderMethod<D, D['o'], D['o'][key]['_result'], D['o'][key]['_params']>;
+            [key in keyof D['o']]: D['o'][key] extends Loader.default<any, any> ? Loader.LoaderMethod<D, D['o'], D['o'][key]['_result'], D['o'][key]['_params']> : never;
         };
     };
 }
