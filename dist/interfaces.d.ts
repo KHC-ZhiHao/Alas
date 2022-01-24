@@ -35,9 +35,9 @@ declare type ValuesOfType<T, V> = {
 };
 export interface IModelOptions<M extends ModelBase, L extends ListBase<M> = ListBase<M>, D extends DictionaryBase<M> = DictionaryBase<M>, A = Omit<M, keyof ModelBase>, R = ValuesOfType<A, ModelBase | ListBase<any> | DictionaryBase<any>>, B = Omit<A, keyof R>> {
     self?: (self: M, params?: M['$init'] extends undefined ? any : Parameters<M['$init']>[0]) => M['$self'];
-    init?: (self: M, params?: M['$init'] extends undefined ? any : Parameters<M['$init']>[0]) => {
-        [key in keyof M]?: M[key];
-    };
+    init?: (self: M, params?: M['$init'] extends undefined ? any : Parameters<M['$init']>[0]) => Omit<{
+        [key in keyof M]?: M[key] extends ModelBase ? Record<string, any> : M[key] extends ListBase<any> ? any[] : M[key] extends DictionaryBase<any> ? Record<string, any> : M[key];
+    }, keyof ModelBase>;
     export?: (self: M) => any;
     inited?: (self: M) => void;
     defaultView?: (self: M, key: string) => any;

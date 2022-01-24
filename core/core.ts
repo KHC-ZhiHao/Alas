@@ -104,7 +104,7 @@ class Core extends Base {
         return container.id === targetContainer.id && modelBase.id === targetModelBase.id
     }
 
-    make(target: string, options?: Types.MakeModelOptions): Model {
+    make(target: string, options?: Types.MakeModelOptions) {
         let aims = this.parseKey(target)
         let container = this.containers[aims.container]
         if (container == null) {

@@ -7,8 +7,10 @@ function getUser(name: string) {
     let main = new Main<{
         user: User.Structure
     }>()
-    // @ts-ignore
     main.addContainer('user', User.Container)
+    let a = main.make('user', 'user')
+    let b = a.$init()
+    b.name
     return main.make('user', 'user').$init({
         Name: name
     })

@@ -15,6 +15,10 @@ export type Structure = ModelStructure<{
         name: string
         children: Structure['list']
         attributes: Attributes.Structure['model']
+        $m: {
+            getAge: () => number
+            getName: (prefix: string) => string
+        }
         $o: {
             getName: Loader<string, string>
             getError: Loader<string, string>
@@ -39,7 +43,9 @@ export const options: ModelOptions<Structure> = {
         attributes: 'attributes'
     },
 
-    init: (self, source) => self.$utils.mapping(map, source || {}),
+    init: (self, source) => {
+        return self.$utils.mapping(map, source || {})
+    },
 
     export: self => {
         let result = self.$utils.mapping(map, self, true)
@@ -58,6 +64,9 @@ export const options: ModelOptions<Structure> = {
     },
 
     methods: {
+        getAge() {
+            return 18
+        },
         getName(self, prefix) {
             return prefix + self.name
         }

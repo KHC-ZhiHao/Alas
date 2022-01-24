@@ -97,7 +97,11 @@ class Utils {
         return output
     }
 
-    static mapping(keyMap: KeyMap, target: any, reverse: boolean = false): any {
+    static mapping<
+        M extends KeyMap,
+        T extends Record<string, any>,
+        R extends boolean
+    >(keyMap: M, target: T, reverse?: R) {
         let output: any = {}
         for (let [key, value] of Object.entries(keyMap)) {
             let name = reverse ? value : key
@@ -110,7 +114,9 @@ class Utils {
                 output[name] = data
             }
         }
-        return output
+        return output as (typeof reverse) extends true ? Record<string, any> : {
+            [key in keyof M]: any
+        }
     }
 
     static valueTo<T extends { [key: string]: any }, K>(target: T, trans: (key: string) => K) {

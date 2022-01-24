@@ -10,7 +10,7 @@ declare class Utils {
     static verify(data?: any, validates?: any): any;
     static generateId(): string;
     static peel(target: any, path: string, def?: any): any;
-    static mapping(keyMap: KeyMap, target: any, reverse?: boolean): any;
+    static mapping<M extends KeyMap, T extends Record<string, any>, R extends boolean>(keyMap: M, target: T, reverse?: R): R | undefined extends true ? Record<string, any> : { [key in keyof M]: any; };
     static valueTo<T extends {
         [key: string]: any;
     }, K>(target: T, trans: (key: string) => K): { [key in keyof T]: K; };

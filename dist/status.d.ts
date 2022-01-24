@@ -37,7 +37,7 @@ declare class Status<O extends StatusOptions<any>, T extends O['loaders'] extend
     private _options;
     private _event;
     constructor(name: string, options: O);
-    get loaders(): { [key in keyof T]: ((params: Parameters<T[key]>[3] extends undefined ? void : Parameters<T[key]>[3]) => Promise<Parameters<Parameters<T[key]>[1] extends LoaderDone<any> ? Parameters<T[key]>[1] : any>[0]>) & import("./loader").default<Parameters<Parameters<T[key]>[1] extends LoaderDone<any> ? Parameters<T[key]>[1] : any>[0], Parameters<T[key]>[3] extends undefined ? void : Parameters<T[key]>[3]>; };
+    get loaders(): { [key in keyof T]: ((params: Parameters<T[key]>[3] extends undefined ? void : Parameters<T[key]>[3]) => Promise<Parameters<Parameters<T[key]>[1] extends LoaderDone<any> ? Parameters<T[key]>[1] : any>[0]>) & Loader.default<Parameters<Parameters<T[key]>[1] extends LoaderDone<any> ? Parameters<T[key]>[1] : any>[0], Parameters<T[key]>[3] extends undefined ? void : Parameters<T[key]>[3]>; };
     on<T extends keyof Channels>(channelName: T, callback: EventCallback<Channels[T]>): string;
     once<T extends keyof Channels>(channelName: T, callback: EventCallback<Channels[T]>): string;
     off<T extends keyof Channels>(channelName: T, id: string): void;
