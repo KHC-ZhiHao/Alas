@@ -30,7 +30,7 @@ export declare class GroupUnit extends Base {
     };
     constructor(modelName: string, base: ModelBase, options: Types.MakeModelOptions);
     setDirty(status?: boolean): void;
-    generateModel(source: any): any;
+    generateModel(source: any, raw?: boolean): any;
 }
 export declare class Group {
     _unit: GroupUnit;

@@ -150,9 +150,7 @@ class ModelUnit extends Base {
         if (this.isReady() === false) {
             throw this.$devError('copy', 'Model not ready.')
         }
-        let target = this.base.create(options || this.customOptions).init(this.export())
-        this.loaders._copyStatus(target.loaders)
-        Object.assign(target.unit.$self, this.unit.$self)
+        let target = this.base.create(options || this.customOptions).init(this.getBody(), true)
         return target
     }
 
@@ -180,12 +178,12 @@ class ModelUnit extends Base {
         }
     }
 
-    setBody(data: any = {}, source: any) {
+    setBody(data: any = {}, source: any, raw = false) {
         for (let key of this.base.propertyNames) {
             if (typeof data[key] === 'function') {
                 throw this.$devError('set', 'Body data not allow function.')
             }
-            if (data[key] != null) {
+            if (raw || data[key] != null) {
                 this.body[key] = data[key]
             } else {
                 this.body[key] = this.options.defs[key] ? this.options.defs[key](this.unit) : null
@@ -193,17 +191,17 @@ class ModelUnit extends Base {
         }
         this.eachRefs((target, key, type) => {
             if (type === 'model') {
-                target.isReady() ? target.setBody(data[key]) : target.init(data[key])
+                target.isReady() ? target.setBody(data[key], data[key], raw) : target.init(data[key], raw)
             } else if (type === 'list') {
                 target.clear()
                 if (data[key]) {
-                    target.batchWrite(data[key])
+                    target.batchWrite(data[key], raw)
                     target.originSize = data[key].length
                 }
             } else {
                 target.clear()
                 if (data[key]) {
-                    target.write(data[key])
+                    target.write(data[key], raw)
                     target.originSize = Object.keys(data[key]).length
                 }
             }
@@ -230,11 +228,16 @@ class ModelUnit extends Base {
         }
     }
 
-    init(data: any) {
+    // raw 不經過 init 轉譯
+    init(data: any, raw = false) {
         if (this.isReady()) {
             throw this.$devError('init', 'Model already inited.')
         }
-        this.setBody(this.options.init ? this.options.init(this.unit, data) : data, data)
+        if (this.options.init && raw === false) {
+            this.setBody(this.options.init(this.unit, data), data, raw)
+        } else {
+            this.setBody(data, data, raw)
+        }
         this.rawBody = this.dataStringify(this.body)
         this.rawData = this.dataStringify(data)
         if (this.base.options.inited) {

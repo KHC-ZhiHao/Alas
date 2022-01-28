@@ -1,3 +1,5 @@
+import List from './list'
+import Dictionary from './dictionary'
 import Utils, { privateProperty } from './utils'
 import Container from './container'
 import ModelUnit from './model-unit'
@@ -114,7 +116,21 @@ class Model {
     }
 
     $generate(options?: MakeModelOptions): this {
-        return this._container.core.main.make(this._container.name , this._model.base.name, options) as this
+        return this._container.core.main.make(this._container.name, this._model.base.name, options) as this
+    }
+
+    $generateFrom<T extends string>(target: T, options?: MakeModelOptions): any {
+        let start = target[0]
+        let end = target[target.length - 1]
+        if (start === '[' && end === ']') {
+            let name = target.slice(1, -1)
+            return this._container.core.main.makeList(this._container.name, name, options)
+        }
+        if (start === '{' && end === '}') {
+            let name = target.slice(1, -1)
+            return this._container.core.main.makeDictionary(this._container.name, name, options)
+        }
+        return this._container.core.main.make(this._container.name, target, options)
     }
 
     $isChange(key?: keyof Omit<this, keyof Model>): boolean {

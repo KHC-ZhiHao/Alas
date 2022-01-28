@@ -1,3 +1,9 @@
+## ver 0.4.7
+
+1. 強化型態驗證。
+2. 為了落實深拷貝，$copy() 不再依賴 $export，只會複製數據，不會再複製 self 與 loader 的狀態了。
+3. 新增 $generateFrom 可以建立同一個 container 的 model。
+
 ## ver 0.4.6
 
 1. 修正 init 的型態驗證錯誤問題。

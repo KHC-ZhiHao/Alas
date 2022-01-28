@@ -32,8 +32,8 @@ declare class ListUnit<T extends Model> extends GroupUnit implements IGroup {
     put(key: string, model: T, insert?: number): void;
     has(key: string): boolean;
     get(key: string): T;
-    write(source: any, options?: Types.ListWriteOptions): void;
-    batchWrite(items: any[]): void;
+    write(source: any, options?: Types.ListWriteOptions, raw?: boolean): void;
+    batchWrite(items: any[], raw?: boolean): void;
     batchWriteAsync(items: any[], ms: number, parallel: number): Promise<unknown>;
     fetch(key: string): T;
     clear(): void;

@@ -30,10 +30,10 @@ class DictionaryUnit<T extends Model> extends GroupUnit implements IGroup {
         return 'dictionary'
     }
 
-    write(data: { [key: string]: any }) {
+    write(data: { [key: string]: any }, raw = false) {
         this.setDirty(true)
         for (let key in data) {
-            this.map.set(key, this.generateModel(data[key]))
+            this.map.set(key, this.generateModel(data[key], raw))
         }
     }
 

@@ -590,6 +590,22 @@ model.$validate = function() => {
 model.$generate = function(options?: { save?: boolean }) => Model
 ```
 
+### $generateFrom
+
+可以建立同一個 container 的 model、list、dictionary。
+
+```ts
+model.$generateFrom = function(target: string, options?: { save?: boolean }) => any
+```
+
+**example**
+
+```ts
+let model = model.$generateFrom('user')
+let list = model.$generateFrom('[user]')
+let dictionary = model.$generateFrom('{user}')
+```
+
 ### $validateBy
 
 驗證指定參數是否符合 body 定義的規則。

@@ -34,6 +34,10 @@ type writeAfter<M> = {
     model: M
 }
 
+type RefString<T> =
+    T extends ListBase<any> ? `[${string}]` :
+    T extends DictionaryBase<any> ? `{${string}}` : string
+
 export type BodyRules =
     '#ms.required' |
     '#ms.alphanumeric' |
@@ -51,7 +55,7 @@ export type BodyRules =
     String
 
 type ValuesOfType<T, V> = {
-    [P in keyof T as T[P] extends V ? P : never] : P
+    [P in keyof T as T[P] extends V ? P : never] : T[P]
 }
 
 export interface IModelOptions<
@@ -69,7 +73,7 @@ export interface IModelOptions<
             M[key] extends ListBase<any> ? any[] :
             M[key] extends DictionaryBase<any> ? Record<string, any> : M[key]
     }, keyof ModelBase>
-    export?: (self: M) => any
+    export?: (self: M) => M['$init'] extends undefined ? any : Parameters<M['$init']>[0]
     inited?: (self: M) => void
     defaultView?: (self: M, key: string) => any
     errorMessage?: (self: M, message?: any) => any
@@ -80,7 +84,7 @@ export interface IModelOptions<
         [key in keyof B]?: (self: M) => B[key]
     },
     refs?: {
-        [key in keyof R]: string
+        [key in keyof R]: RefString<R[key]>
     },
     watch?: {
         [key in keyof B]?: (self: M, value: B[key]) => void

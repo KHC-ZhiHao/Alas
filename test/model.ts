@@ -43,6 +43,18 @@ describe('Model', () => {
         expect(newUser.$v.name).to.equal('my name is james')
     })
 
+    it('generate from', function() {
+        let user = getUser('dave')
+        let users: User.Structure['models']['user']['list'] = user.$generateFrom('[user]')
+        let userD: User.Structure['models']['user']['dictionary'] = user.$generateFrom('{user}')
+        let newUser = user.$generate().$init({
+            Name: 'james'
+        })
+        expect(userD.size).to.equal(0)
+        expect(users.v.size).to.equal(0)
+        expect(newUser.$v.name).to.equal('my name is james')
+    })
+
     it('system model', function() {
         let main = new Main()
         main.addContainer('user', {
@@ -167,8 +179,8 @@ describe('Model', () => {
                 expect(value).to.equal('my name is dave')
                 expect(user.$o.getName.done).to.equal(true)
                 let newUser = user.$copy()
-                expect(newUser.$o.getName.done).to.equal(true)
-                expect(newUser.$o.getName.called).to.equal(true)
+                expect(newUser.$o.getName.done).to.equal(false)
+                expect(newUser.$o.getName.called).to.equal(false)
                 done()
             })
     })

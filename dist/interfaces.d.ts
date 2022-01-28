@@ -29,16 +29,17 @@ declare type writeAfter<M> = {
     key: string;
     model: M;
 };
+declare type RefString<T> = T extends ListBase<any> ? `[${string}]` : T extends DictionaryBase<any> ? `{${string}}` : string;
 export declare type BodyRules = '#ms.required' | '#ms.alphanumeric' | '#ms.email' | '#ms.in|of:key1,key2' | '#ms.range|max:?|min:?|same:?' | '#ms.length|max:?|min:?|same:?' | '#ms.type|is:?' | '#ms.strongType|is:?' | '#ms.number' | '#ms.hhmm' | '#ms.mmdd' | '#ms.yyyymm' | '#ms.yyyymmdd' | String;
 declare type ValuesOfType<T, V> = {
-    [P in keyof T as T[P] extends V ? P : never]: P;
+    [P in keyof T as T[P] extends V ? P : never]: T[P];
 };
 export interface IModelOptions<M extends ModelBase, L extends ListBase<M> = ListBase<M>, D extends DictionaryBase<M> = DictionaryBase<M>, A = Omit<M, keyof ModelBase>, R = ValuesOfType<A, ModelBase | ListBase<any> | DictionaryBase<any>>, B = Omit<A, keyof R>> {
     self?: (self: M, params?: M['$init'] extends undefined ? any : Parameters<M['$init']>[0]) => M['$self'];
     init?: (self: M, params?: M['$init'] extends undefined ? any : Parameters<M['$init']>[0]) => Omit<{
         [key in keyof M]?: M[key] extends ModelBase ? Record<string, any> : M[key] extends ListBase<any> ? any[] : M[key] extends DictionaryBase<any> ? Record<string, any> : M[key];
     }, keyof ModelBase>;
-    export?: (self: M) => any;
+    export?: (self: M) => M['$init'] extends undefined ? any : Parameters<M['$init']>[0];
     inited?: (self: M) => void;
     defaultView?: (self: M, key: string) => any;
     errorMessage?: (self: M, message?: any) => any;
@@ -49,7 +50,7 @@ export interface IModelOptions<M extends ModelBase, L extends ListBase<M> = List
         [key in keyof B]?: (self: M) => B[key];
     };
     refs?: {
-        [key in keyof R]: string;
+        [key in keyof R]: RefString<R[key]>;
     };
     watch?: {
         [key in keyof B]?: (self: M, value: B[key]) => void;

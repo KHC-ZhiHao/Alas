@@ -127,7 +127,7 @@ class ListUnit<T extends Model> extends GroupUnit implements IGroup {
         return this.map[this.toPKey(key)]
     }
 
-    write(source: any, options: Types.ListWriteOptions = {}) {
+    write(source: any, options: Types.ListWriteOptions = {}, raw = false) {
         let type = typeof source
         if (type !== 'object') {
             this.$devError('write', 'Source not a object.')
@@ -138,7 +138,7 @@ class ListUnit<T extends Model> extends GroupUnit implements IGroup {
         if (Array.isArray(source)) {
             this.$devError('write', 'Source is a array.')
         }
-        let model = this.generateModel(source)
+        let model = this.generateModel(source, raw)
         let key = this.getKey(model)
         if (this.base.isUs(model) === false) {
             this.$devError('write', `Source not a ${this.base.name} model.`)
@@ -173,13 +173,13 @@ class ListUnit<T extends Model> extends GroupUnit implements IGroup {
         }
     }
 
-    batchWrite(items: any[]) {
+    batchWrite(items: any[], raw = false) {
         if (Array.isArray(items) === false) {
             throw this.$devError('batchWrite', 'Data not a array.')
         }
         this.status.dirty = true
         for (let item of items) {
-            this.write(item)
+            this.write(item, {}, raw)
         }
     }
 

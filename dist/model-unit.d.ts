@@ -47,10 +47,10 @@ declare class ModelUnit extends Base {
     copy(options?: Types.MakeModelOptions): ModelUnit;
     reset(key?: string): void;
     initBody(): void;
-    setBody(data: any, source: any): void;
+    setBody(data: any, source: any, raw?: boolean): void;
     setError(data: any): void;
     eachRefs(callback: (target: any, key: string, type: Types.Modes) => any): void;
-    init(data: any): this;
+    init(data: any, raw?: boolean): this;
     commit(): void;
     profile(): any;
     install(): void;

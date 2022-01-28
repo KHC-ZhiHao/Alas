@@ -37,6 +37,7 @@ declare class Model {
     $export(): any;
     $reload(data: any): void;
     $generate(options?: MakeModelOptions): this;
+    $generateFrom<T extends string>(target: T, options?: MakeModelOptions): any;
     $isChange(key?: keyof Omit<this, keyof Model>): boolean;
     $validate(): {
         result: {

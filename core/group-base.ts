@@ -40,8 +40,8 @@ export class GroupUnit extends Base {
         this.status.dirty = !!status
     }
 
-    generateModel(source: any) {
-        return Utils.isModel(source) ? source : this.base.create(this.customOptions).unit.$init(source)
+    generateModel(source: any, raw = false) {
+        return Utils.isModel(source) ? source : this.base.create(this.customOptions).init(source, raw).unit
     }
 }
 

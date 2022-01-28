@@ -11,7 +11,7 @@ declare class DictionaryUnit<T extends Model> extends GroupUnit implements IGrou
     getType(): string;
     write(data: {
         [key: string]: any;
-    }): void;
+    }, raw?: boolean): void;
     forEach(callback: (model: Model, index: string) => any): void;
     isChange(): boolean;
     validateAll(): {
