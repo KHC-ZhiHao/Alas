@@ -55,7 +55,7 @@ class List<T extends Model> extends Group {
         return this._unit.batchWrite(data)
     }
 
-    batchWriteAsync(items: Array<any>, ms: number = 2, parallel: number = 1) {
+    batchWriteAsync(items: Array<any>, ms = 2, parallel = 1) {
         return this._unit.batchWriteAsync(items, ms, parallel)
     }
 

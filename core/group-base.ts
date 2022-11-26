@@ -56,15 +56,15 @@ export class Group {
     }
 
     get v() {
-        return this._unit.views as {}
+        return this._unit.views as Record<string, unknown>
     }
 
     get m() {
-        return this._unit.methods as {}
+        return this._unit.methods as Record<string, unknown>
     }
 
     get o() {
-        return this._unit.loaders._items as {}
+        return this._unit.loaders._items as Record<string, unknown>
     }
 
     get loader() {

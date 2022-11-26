@@ -1,5 +1,3 @@
-import List from './list'
-import Dictionary from './dictionary'
 import Utils, { privateProperty } from './utils'
 import Container from './container'
 import ModelUnit from './model-unit'
@@ -15,15 +13,15 @@ class Model {
     }
 
     get $v() {
-        return this._model.views as {}
+        return this._model.views as Record<string, unknown>
     }
 
     get $o() {
-        return this._model.loaders._items as {}
+        return this._model.loaders._items as Record<string, unknown>
     }
 
     get $m() {
-        return this._model.methods as {}
+        return this._model.methods as Record<string, unknown>
     }
 
     get $loader() {
@@ -143,10 +141,9 @@ class Model {
 
     $validateBy(key: keyof Omit<this, keyof Model>) {
         if (Object.prototype.hasOwnProperty.call(this._model.body, key) === false) {
-            throw this._model.$devError('$validateBy', `Property name(${key}) not in the body.`)
+            throw this._model.$devError('$validateBy', `Property name(${key as string}) not in the body.`)
         }
-        let self: any = this
-        return this._model.validate(self[key], key as string)
+        return this._model.validate(this[key], key as string)
     }
 
     $setError(data?: any) {

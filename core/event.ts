@@ -30,10 +30,9 @@ class Event extends Base {
     }
 
     once(channelName: string, callback: Types.EventCallback) {
-        let self = this
         return this.on(channelName, (target, context, ...args) => {
             callback(target, context, ...args)
-            self.off(channelName, context.id)
+            this.off(channelName, context.id)
         })
     }
 

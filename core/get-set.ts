@@ -10,6 +10,7 @@ type Params = {
 
 export default function(target: any, params: Params, useProxy = true) {
     if (useProxy && typeof Proxy !== 'undefined') {
+        // eslint-disable-next-line no-undef
         return new Proxy(target, {
             get: params.get,
             set: params.set
@@ -24,7 +25,6 @@ export default function(target: any, params: Params, useProxy = true) {
                 },
                 set(value) {
                     params.set(target, key, value)
-                    return true
                 }
             })
         }
@@ -51,7 +51,6 @@ export default function(target: any, params: Params, useProxy = true) {
                             },
                             set(value) {
                                 params.set(target, key, value)
-                                return true
                             }
                         })
                     } catch (error) {

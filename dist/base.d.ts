@@ -1,4 +1,4 @@
-declare type DevErrorContext = {
+type DevErrorContext = {
     name: string;
     target: any;
     message: string;

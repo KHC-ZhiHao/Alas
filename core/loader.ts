@@ -14,15 +14,15 @@ type Channels = {
 class LoaderCore extends Base {
     name: string
     type: Modes
-    done: boolean = false
+    done = false
     error: any = null
     event: Event = new Event('Loader')
     loader: Loader<any, any>
     target: any
-    called: boolean = false
+    called = false
     result: any = null
-    message: string = ''
-    loading: boolean = false
+    message = ''
+    loading = false
     handler: LoaderHandler
     starting: any = null
     constructor(loader: Loader<any, any>, type: Modes, target: any, name: string, handler: LoaderHandler) {
@@ -90,8 +90,8 @@ class LoaderCore extends Base {
 
 class Loader<T, P = any> {
     _core: LoaderCore
-    _result?: T
-    _params?: P
+    _result!: T
+    _params!: P
     constructor(type: Modes, target: any, name: string, handler: LoaderHandler) {
         this._core = new LoaderCore(this, type, target, name, handler)
     }
@@ -246,7 +246,7 @@ export function create(target: any, type: Modes, options: { [key: string]: Loade
 export function generateSimplifyLoader<
     D,
     R,
-    T extends LoaderSimplifyCallback<{}, D, R>
+    T extends LoaderSimplifyCallback<Record<string, unknown>, D, R>
 >(handler: T) {
     return new Loader('any', {}, handler.name, loaderSimplify(handler)) as Loader<R, D> & Loader<R, D>['start']
 }

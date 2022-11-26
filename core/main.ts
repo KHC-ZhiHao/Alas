@@ -125,7 +125,7 @@ class Main<T extends Containers = Containers> extends Base {
         K extends keyof T,
         N extends keyof T[K]['models']
     >(containerName: K, modelName: N, options?: MakeModelOptions): T[K]['models'][N]['model'] {
-        let model = this._core.make(containerName + '/' + modelName, options) as T[K]['models'][N]['model']
+        let model = this._core.make((containerName as string) + '/' + (modelName as string), options) as T[K]['models'][N]['model']
         this._event.emit(this, 'makedModel', [model])
         return model
     }
@@ -134,7 +134,7 @@ class Main<T extends Containers = Containers> extends Base {
         K extends keyof T,
         N extends keyof T[K]['models']
     >(containerName: K, modelName: N, options?: MakeModelOptions): T[K]['models'][N]['list'] {
-        let list = this._core.makeList(containerName + '/' + modelName, options) as T[K]['models'][N]['list']
+        let list = this._core.makeList((containerName as string) + '/' + (modelName as string), options) as T[K]['models'][N]['list']
         this._event.emit(this, 'makedList', [list])
         return list
     }
@@ -143,7 +143,7 @@ class Main<T extends Containers = Containers> extends Base {
         K extends keyof T,
         N extends keyof T[K]['models']
     >(containerName: K, modelName: N, options?: MakeModelOptions): T[K]['models'][N]['dictionary'] {
-        let dictionary = this._core.makeDictionary(containerName + '/' + modelName, options) as T[K]['models'][N]['dictionary']
+        let dictionary = this._core.makeDictionary((containerName as string) + '/' + (modelName as string), options) as T[K]['models'][N]['dictionary']
         this._event.emit(this, 'makedDictionary', [dictionary])
         return dictionary
     }
@@ -178,7 +178,7 @@ class Main<T extends Containers = Containers> extends Base {
         K extends keyof T,
         N extends keyof T[K]['models']
     >(container: K, model: N, source: any) {
-        return this._core.instanceof(container + '/' + model, source)
+        return this._core.instanceof((container as string) + '/' + (model as string), source)
     }
 
     registerStatus<T extends StatusOptions<any>>(name: string, options: T) {

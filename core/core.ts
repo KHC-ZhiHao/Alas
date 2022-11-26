@@ -78,7 +78,7 @@ class Core extends Base {
         }
     }
 
-    instanceof(key: string, target: any): Boolean {
+    instanceof(key: string, target: any): boolean {
         if (Utils.isModel(target) === false && Utils.isList(target) === false && Utils.isDictionary(target) === false) {
             throw this.$devError('instanceof', 'Target not a model, list or dictionary.')
         }

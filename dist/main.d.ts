@@ -11,14 +11,14 @@ import Status, { StatusOptions } from './status';
 import { MakeModelOptions, EventCallback, RuleArray } from './types';
 import { Containers, ContainerOptions, PackageOptions, ModelOptions } from './index';
 import { loaderSimplify, generateSimplifyLoader } from './loader';
-declare type Params<C extends Containers> = {
+type Params<C extends Containers> = {
     name?: string;
     containers?: {
         [key in keyof C]: ContainerOptions<C[key]> | [ContainerOptions<C[key]>, any];
     };
     packages?: Array<PackageOptions>;
 };
-declare type Channels = {
+type Channels = {
     makedModel: [Model];
     makedList: [List<Model>];
     makedDictionary: [Dictionary<Model>];
@@ -65,7 +65,7 @@ declare class Main<T extends Containers = Containers> extends Base {
     addContainer(name: string, data: ContainerOptions<any>, options?: any): any;
     rules(data: RuleArray): Array<(...params: any) => boolean | string>;
     setLocale(locale: string): void;
-    instanceof<K extends keyof T, N extends keyof T[K]['models']>(container: K, model: N, source: any): Boolean;
+    instanceof<K extends keyof T, N extends keyof T[K]['models']>(container: K, model: N, source: any): boolean;
     registerStatus<T extends StatusOptions<any>>(name: string, options: T): Status<T, T["loaders"] extends undefined ? {
         [key: string]: any;
     } : T["loaders"]>;

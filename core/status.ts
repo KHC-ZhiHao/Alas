@@ -93,7 +93,7 @@ class Status <
 
     fetch<N extends keyof O['states']>(name: N): ReturnType<O['states'][N]> {
         if (this._states[name] == null) {
-            throw this.$devError('fetch', `State ${name} not found`)
+            throw this.$devError('fetch', `State ${name as string} not found`)
         }
         let result = GetSet(this._states[name], {
             get: (target, key) => {
@@ -117,7 +117,7 @@ class Status <
     reset<N extends keyof O['states']>(name: N) {
         let item = this._options.states[name.toString()]
         if (item == null) {
-            throw this.$devError('reset', `State ${name} not found`)
+            throw this.$devError('reset', `State ${name as string} not found`)
         }
         this._states[name] = item()
         this._event.emit(this, 'reset', [{ name }])

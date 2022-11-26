@@ -27,7 +27,7 @@ declare class Core extends Base {
         name: string;
         container: string;
     };
-    instanceof(key: string, target: any): Boolean;
+    instanceof(key: string, target: any): boolean;
     make(target: string, options?: Types.MakeModelOptions): Model;
     makeList(target: string, options?: Types.MakeModelOptions): List<Model>;
     makeDictionary(target: string, options?: Types.MakeModelOptions): Dictionary<Model>;

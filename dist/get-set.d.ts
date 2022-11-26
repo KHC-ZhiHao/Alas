@@ -1,4 +1,4 @@
-declare type Params = {
+type Params = {
     get: (...params: any) => any;
     set: (...params: any) => any;
 };

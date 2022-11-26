@@ -9,9 +9,9 @@ declare class Model {
         [key: string]: any;
     };
     constructor(model: ModelUnit);
-    get $v(): {};
-    get $o(): {};
-    get $m(): {};
+    get $v(): Record<string, unknown>;
+    get $o(): Record<string, unknown>;
+    get $m(): Record<string, unknown>;
     get $loader(): import("./loader").LoaderCase<any>;
     get $config(): any;
     get $utils(): typeof Utils;

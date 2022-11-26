@@ -86,8 +86,8 @@ class ModelBase extends Base {
             this._methods = methods
         }
         for (let key in methods) {
-            this.Methods.prototype[key] = function() {
-                return this._methods[key](this._target, ...Array.from(arguments))
+            this.Methods.prototype[key] = function(...args: any[]) {
+                return this._methods[key](this._target, ...Array.from(args))
             }
         }
     }
@@ -119,8 +119,8 @@ class ModelBase extends Base {
             this._methods = methods
         }
         for (let key in methods) {
-            this.ListMethods.prototype[key] = function() {
-                return this._methods[key](this._target, ...Array.from(arguments))
+            this.ListMethods.prototype[key] = function(...args: any[]) {
+                return this._methods[key](this._target, ...Array.from(args))
             }
         }
     }
@@ -152,8 +152,8 @@ class ModelBase extends Base {
             this._methods = methods
         }
         for (let key in methods) {
-            this.DictionaryMethods.prototype[key] = function() {
-                return this._methods[key](this._target, ...Array.from(arguments))
+            this.DictionaryMethods.prototype[key] = function(...args: any[]) {
+                return this._methods[key](this._target, ...Array.from(args))
             }
         }
     }

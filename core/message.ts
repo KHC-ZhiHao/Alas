@@ -44,7 +44,7 @@ class Message extends Base {
         return this.store[locale]
     }
 
-    add(data: { [key: string]: any }, prefix: string = '') {
+    add(data: { [key: string]: any }, prefix = '') {
         if (typeof data !== 'object') {
             throw this.$devError('set', 'Data not a object')
         }

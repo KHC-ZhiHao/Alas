@@ -36,9 +36,9 @@ export declare class Group {
     _unit: GroupUnit;
     constructor(unit: GroupUnit);
     get dirty(): boolean;
-    get v(): {};
-    get m(): {};
-    get o(): {};
+    get v(): Record<string, unknown>;
+    get m(): Record<string, unknown>;
+    get o(): Record<string, unknown>;
     get loader(): LoaderCase<any>;
     get config(): any;
     get utils(): typeof Utils;

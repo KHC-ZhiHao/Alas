@@ -235,7 +235,7 @@ class ListUnit<T extends Model> extends GroupUnit implements IGroup {
                 return this.remove(key.slice(1))
             }
         }
-        throw this.$devError('removeByItem', `Data not found.`)
+        throw this.$devError('removeByItem', 'Data not found.')
     }
 }
 

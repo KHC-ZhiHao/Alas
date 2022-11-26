@@ -22,7 +22,7 @@ class Rule extends Base {
         })
     }
 
-    addMultiple(rules: { [key: string]: any }, prefix: string = '') {
+    addMultiple(rules: { [key: string]: any }, prefix = '') {
         for (let name in rules) {
             this.add(prefix + name, rules[name])
         }

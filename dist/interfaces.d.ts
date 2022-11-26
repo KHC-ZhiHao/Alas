@@ -4,34 +4,34 @@ import ModelBase from './model';
 import DictionaryBase from './dictionary';
 import * as Types from './types';
 import * as Loader from './loader';
-declare type Rule = (self: ModelBase, value: any, params: {
+type Rule = (self: ModelBase, value: any, params: {
     [key: string]: string;
 }) => string | true;
-declare type RuleObject = {
-    required: Boolean;
+type RuleObject = {
+    required: boolean;
     handler: Rule;
 };
-declare type Rules = {
+type Rules = {
     [key: string]: Rule | RuleObject;
 };
-declare type Locales = {
+type Locales = {
     [key in string]?: {
         [key: string]: string;
     };
 };
-declare type writeContext<M> = {
+type writeContext<M> = {
     key: string;
     model: M;
     reject: (message: any) => any;
     success: () => any;
 };
-declare type writeAfter<M> = {
+type writeAfter<M> = {
     key: string;
     model: M;
 };
-declare type RefString<T> = T extends ListBase<any> ? `[${string}]` : T extends DictionaryBase<any> ? `{${string}}` : string;
-export declare type BodyRules = '#ms.required' | '#ms.alphanumeric' | '#ms.email' | '#ms.in|of:key1,key2' | '#ms.range|max:?|min:?|same:?' | '#ms.length|max:?|min:?|same:?' | '#ms.type|is:?' | '#ms.strongType|is:?' | '#ms.number' | '#ms.hhmm' | '#ms.mmdd' | '#ms.yyyymm' | '#ms.yyyymmdd' | String;
-declare type ValuesOfType<T, V> = {
+type RefString<T> = T extends ListBase<any> ? `[${string}]` : T extends DictionaryBase<any> ? `{${string}}` : string;
+export type BodyRules = '#ms.required' | '#ms.alphanumeric' | '#ms.email' | '#ms.in|of:key1,key2' | '#ms.range|max:?|min:?|same:?' | '#ms.length|max:?|min:?|same:?' | '#ms.type|is:?' | '#ms.strongType|is:?' | '#ms.number' | '#ms.hhmm' | '#ms.mmdd' | '#ms.yyyymm' | '#ms.yyyymmdd' | String;
+type ValuesOfType<T, V> = {
     [P in keyof T as T[P] extends V ? P : never]: T[P];
 };
 export interface IModelOptions<M extends ModelBase, L extends ListBase<M> = ListBase<M>, D extends DictionaryBase<M> = DictionaryBase<M>, A = Omit<M, keyof ModelBase>, R = ValuesOfType<A, ModelBase | ListBase<any> | DictionaryBase<any>>, B = Omit<A, keyof R>> {
@@ -59,10 +59,10 @@ export interface IModelOptions<M extends ModelBase, L extends ListBase<M> = List
         [key in keyof M['$v']]: (self: M) => M['$v'][key];
     };
     methods?: {
-        [key in keyof M['$m']]: M['$m'][key] extends (...params: any) => any ? (self: M, ...parmas: Parameters<M['$m'][key]>) => ReturnType<M['$m'][key]> : never;
+        [key in keyof M['$m']]: M['$m'][key] extends (...params: any) => any ? (self: M, ...parmas: Parameters<M['$m'][key]>) => ReturnType<M['$m'][key]> : unknown;
     };
     loaders?: {
-        [key in keyof M['$o']]: M['$o'][key] extends Loader.default<any, any> ? Loader.LoaderMethod<M, M['$o'], M['$o'][key]['_result'], M['$o'][key]['_params']> : never;
+        [key in keyof M['$o']]: M['$o'][key] extends Loader.default<any, any> ? Loader.LoaderMethod<M, M['$o'], M['$o'][key]['_result'], M['$o'][key]['_params']> : unknown;
     };
     list?: {
         key?: (model: M) => string;
@@ -72,10 +72,10 @@ export interface IModelOptions<M extends ModelBase, L extends ListBase<M> = List
             [key in keyof L['v']]: (list: L) => L['v'][key];
         };
         methods?: {
-            [key in keyof L['m']]: L['m'][key] extends (...params: any) => any ? (list: L, ...parmas: Parameters<L['m'][key]>) => ReturnType<L['m'][key]> : never;
+            [key in keyof L['m']]: L['m'][key] extends (...params: any) => any ? (list: L, ...parmas: Parameters<L['m'][key]>) => ReturnType<L['m'][key]> : unknown;
         };
         loaders?: {
-            [key in keyof L['o']]: L['o'][key] extends Loader.default<any, any> ? Loader.LoaderMethod<L, L['o'], L['o'][key]['_result'], L['o'][key]['_params']> : never;
+            [key in keyof L['o']]: L['o'][key] extends Loader.default<any, any> ? Loader.LoaderMethod<L, L['o'], L['o'][key]['_result'], L['o'][key]['_params']> : unknown;
         };
     };
     dictionary?: {
@@ -83,10 +83,10 @@ export interface IModelOptions<M extends ModelBase, L extends ListBase<M> = List
             [key in keyof D['v']]: (self: D) => any;
         };
         methods?: {
-            [key in keyof D['m']]: D['m'][key] extends (...params: any) => any ? (self: D, ...parmas: Parameters<D['m'][key]>) => ReturnType<D['m'][key]> : never;
+            [key in keyof D['m']]: D['m'][key] extends (...params: any) => any ? (self: D, ...parmas: Parameters<D['m'][key]>) => ReturnType<D['m'][key]> : unknown;
         };
         loaders?: {
-            [key in keyof D['o']]: D['o'][key] extends Loader.default<any, any> ? Loader.LoaderMethod<D, D['o'], D['o'][key]['_result'], D['o'][key]['_params']> : never;
+            [key in keyof D['o']]: D['o'][key] extends Loader.default<any, any> ? Loader.LoaderMethod<D, D['o'], D['o'][key]['_result'], D['o'][key]['_params']> : unknown;
         };
     };
 }
