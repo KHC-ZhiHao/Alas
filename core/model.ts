@@ -3,6 +3,12 @@ import Container from './container'
 import ModelUnit from './model-unit'
 import { EventCallback, MakeModelOptions } from './types'
 
+type KeysOfTypeStrict<T, U> = {
+    [P in keyof T]: T[P] extends U ? (U extends T[P] ? P : never) : never
+}[keyof T]
+
+type PickByTypeStrict<U, T> = Pick<T, KeysOfTypeStrict<T, U>>
+
 class Model {
     _model: ModelUnit
     _container!: Container
@@ -83,6 +89,17 @@ class Model {
 
     $body() {
         return this._model.getBody()
+    }
+
+    $setAttr(data: Partial<Omit<PickByTypeStrict<number | boolean | string, this>, keyof Model>>) {
+        for (let key in data) {
+            if (key in this._model.body) {
+                let type = Utils.getType(this._model.body[key])
+                if (['string', 'number', 'boolean', 'empty'].includes(type)) {
+                    this._model.body[key] = (data as any)[key]
+                }
+            }
+        }
     }
 
     $keys() {

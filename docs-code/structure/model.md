@@ -489,6 +489,14 @@ model.$copy = function(options?: { save?: boolean }) => Model
 model.$body = function() => { [key: string]: any }
 ```
 
+### $setAttr
+
+批次更新常數屬性，意指更新屬性為 `number` | `string` | `boolean` | `null` | `undefined`  的值。
+
+```ts
+model.$setAttr = function(data: { [key: string]: any }) => void
+```
+
 ### $keys
 
 回傳 [body](#body) 與 [refs](#refs) 的 key 值。
