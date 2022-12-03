@@ -1,5 +1,5 @@
 import Base from './base';
-declare class Store extends Base {
+export declare class Store extends Base {
     items: {
         [key: string]: string;
     };
@@ -7,7 +7,7 @@ declare class Store extends Base {
     add(key: string, value: string): void;
     get(key: string): string | null;
 }
-declare class Message extends Base {
+export declare class Message extends Base {
     store: {
         [key: string]: Store;
     };

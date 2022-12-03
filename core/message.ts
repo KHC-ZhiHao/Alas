@@ -1,6 +1,6 @@
 import Base from './base'
 
-class Store extends Base {
+export class Store extends Base {
     items: {[key: string]: string} = {}
     constructor() {
         super('MessageStore')
@@ -15,7 +15,7 @@ class Store extends Base {
     }
 }
 
-class Message extends Base {
+export class Message extends Base {
     store: { [key: string]: Store }
     locale!: string
     default: Store

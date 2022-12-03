@@ -2,7 +2,7 @@ import Base from './base'
 import Utils from './utils'
 import * as Types from './types'
 
-class Event extends Base {
+export class Event extends Base {
     type: string
     channels: { [key: string]: Channel } = {}
     constructor(type: string) {
@@ -53,7 +53,7 @@ class Event extends Base {
     }
 }
 
-class Channel extends Base {
+export class Channel extends Base {
     listeners: { [key: string]: Listener } = {}
     constructor() {
         super('Channel')
@@ -86,7 +86,7 @@ class Channel extends Base {
     }
 }
 
-class Listener extends Base {
+export class Listener extends Base {
     id: string
     channel: Channel
     callback: Types.EventCallback

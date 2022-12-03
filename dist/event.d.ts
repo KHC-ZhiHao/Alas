@@ -1,6 +1,6 @@
 import Base from './base';
 import * as Types from './types';
-declare class Event extends Base {
+export declare class Event extends Base {
     type: string;
     channels: {
         [key: string]: Channel;
@@ -15,7 +15,7 @@ declare class Event extends Base {
     emit(target: any, channelName: string, params?: Array<any>): void;
     trigger(channelName: string, target: any, params: Array<any>): Promise<void>;
 }
-declare class Channel extends Base {
+export declare class Channel extends Base {
     listeners: {
         [key: string]: Listener;
     };
@@ -25,7 +25,7 @@ declare class Channel extends Base {
     removeListener(id: string): void;
     broadcast(target: any, params: Array<any>): void;
 }
-declare class Listener extends Base {
+export declare class Listener extends Base {
     id: string;
     channel: Channel;
     callback: Types.EventCallback;
