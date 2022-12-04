@@ -32,9 +32,9 @@ export type Loader<T, P = any> = _Loader<T, P>
 export type LoaderDone<T> = (result?: T) => void
 
 export type ModelStructure<T extends ContainerModel> = {
-    model: _Model & T['model']
-    list: _List<_Model & T['model']> & T['list']
-    dictionary: _Dictionary<_Model & T['model']> & T['dictionary']
+    model: Omit<(_Model & T['model']), keyof T['model']> & T['model']
+    list: Omit<_List<_Model & T['model']> & T['list'], keyof T['list']> & T['list']
+    dictionary: Omit<_Dictionary<_Model & T['model']> & T['dictionary'], keyof T['dictionary']> & T['dictionary']
 }
 
 export type ModelOptions<T extends ModelStructure<any>> = Interfaces.IModelOptions<
