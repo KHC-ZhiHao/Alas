@@ -549,7 +549,7 @@ describe('Event', () => {
     it('once', function(done) {
         let user = getUser('dave')
         let count = 0
-        user.$once('test', (self: any, context: any) => {
+        user.$once('test', () => {
             count += 1
         })
         user.$emit('test')
@@ -563,7 +563,7 @@ describe('Event', () => {
     it('off', function(done) {
         let user = getUser('dave')
         let count = 0
-        let id = user.$on('test', (self: any, context: any) => {
+        let id = user.$on('test', () => {
             count += 1
             user.$off('test', id)
             user.$emit('test')
@@ -627,7 +627,7 @@ describe('Loader', () => {
     })
     it('event - start', function(done) {
         let user = getUser('dave')
-        user.$o.getName.on('start', (self: any, context: any) => {
+        user.$o.getName.on('start', () => {
             done()
         })
         user.$o.getName.start('123')
