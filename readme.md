@@ -15,9 +15,6 @@
     <a href="https://coveralls.io/github/KHC-ZhiHao/Alas?branch=master">
         <img src="https://coveralls.io/repos/github/KHC-ZhiHao/Alas/badge.svg?branch=master" style="max-width:100%;">
     </a>
-    <a href="https://lgtm.com/projects/g/KHC-ZhiHao/Alas/context:javascript">
-        <img src="https://img.shields.io/lgtm/grade/javascript/g/KHC-ZhiHao/Alas.svg?logo=lgtm&logoWidth=18"/>
-    </a>
     <a href="https://standardjs.com/">
         <img src="https://img.shields.io/badge/code_style-standard-brightgreen.svg" style="max-width:100%;">
     </a>

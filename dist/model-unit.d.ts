@@ -44,7 +44,9 @@ declare class ModelUnit extends Base {
     isChange(key?: string): any;
     export(): any;
     reload(data: any): void;
-    copy(options?: Types.MakeModelOptions): ModelUnit;
+    copy(options?: Types.MakeModelOptions & {
+        withSelf?: boolean;
+    }): ModelUnit;
     reset(key?: string): void;
     initBody(): void;
     setBody(data: any, source: any, raw?: boolean): void;
