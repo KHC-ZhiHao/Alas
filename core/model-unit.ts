@@ -146,14 +146,15 @@ class ModelUnit extends Base {
         this.init(data)
     }
 
-    copy(options?: Types.MakeModelOptions & { withSelf?: boolean }) {
+    copy(options?: Types.MakeModelOptions) {
         if (this.isReady() === false) {
             throw this.$devError('copy', 'Model not ready.')
         }
-        let target = this.base.create(options || this.customOptions).init(this.getBody(), true)
-        if (options && options.withSelf) {
-            Object.assign(target.unit.$self, this.unit.$self)
+        let nowOptions = options || this.customOptions
+        let mkOption: Types.MakeModelOptions = {
+            save: nowOptions?.save
         }
+        let target = this.base.create(mkOption).init(this.getBody(), true)
         return target
     }
 

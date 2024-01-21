@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>管理 Vue 資源狀態 | ALAS Guide</title>
-    <meta name="generator" content="VuePress 1.8.2">
+    <meta name="generator" content="VuePress 1.9.10">
     <link rel="shortcut icon" href="/Alas/images/logo.ico">
     <meta name="description" content="資源狀態管理工具">
     
-    <link rel="preload" href="/Alas/assets/css/0.styles.35608b25.css" as="style"><link rel="preload" href="/Alas/assets/js/app.7ebddd00.js" as="script"><link rel="preload" href="/Alas/assets/js/2.84290cca.js" as="script"><link rel="preload" href="/Alas/assets/js/11.62db5f22.js" as="script"><link rel="preload" href="/Alas/assets/js/6.bff73d77.js" as="script"><link rel="prefetch" href="/Alas/assets/js/10.d43ab40b.js"><link rel="prefetch" href="/Alas/assets/js/12.638bfdd0.js"><link rel="prefetch" href="/Alas/assets/js/13.c654c214.js"><link rel="prefetch" href="/Alas/assets/js/14.131b66be.js"><link rel="prefetch" href="/Alas/assets/js/15.1a5d7b3d.js"><link rel="prefetch" href="/Alas/assets/js/16.b9cd0559.js"><link rel="prefetch" href="/Alas/assets/js/17.2c105ff3.js"><link rel="prefetch" href="/Alas/assets/js/18.f1a35afc.js"><link rel="prefetch" href="/Alas/assets/js/19.b8662da2.js"><link rel="prefetch" href="/Alas/assets/js/20.e0a9433b.js"><link rel="prefetch" href="/Alas/assets/js/21.0a383d03.js"><link rel="prefetch" href="/Alas/assets/js/22.084beb2b.js"><link rel="prefetch" href="/Alas/assets/js/23.b146369a.js"><link rel="prefetch" href="/Alas/assets/js/24.8c41945d.js"><link rel="prefetch" href="/Alas/assets/js/3.b4237e0f.js"><link rel="prefetch" href="/Alas/assets/js/4.bc71b139.js"><link rel="prefetch" href="/Alas/assets/js/5.1470a048.js"><link rel="prefetch" href="/Alas/assets/js/7.0953f092.js"><link rel="prefetch" href="/Alas/assets/js/8.e4aa4a66.js"><link rel="prefetch" href="/Alas/assets/js/9.2496527b.js">
-    <link rel="stylesheet" href="/Alas/assets/css/0.styles.35608b25.css">
+    <link rel="preload" href="/Alas/assets/css/0.styles.78e31a42.css" as="style"><link rel="preload" href="/Alas/assets/js/app.d0fe28ab.js" as="script"><link rel="preload" href="/Alas/assets/js/2.778bb4ad.js" as="script"><link rel="preload" href="/Alas/assets/js/1.f8bb34da.js" as="script"><link rel="preload" href="/Alas/assets/js/26.1c63c01f.js" as="script"><link rel="preload" href="/Alas/assets/js/22.3baff8a9.js" as="script"><link rel="prefetch" href="/Alas/assets/js/10.fde088a2.js"><link rel="prefetch" href="/Alas/assets/js/11.c62b6b34.js"><link rel="prefetch" href="/Alas/assets/js/12.27d4f152.js"><link rel="prefetch" href="/Alas/assets/js/13.52087e05.js"><link rel="prefetch" href="/Alas/assets/js/14.eb7a3d07.js"><link rel="prefetch" href="/Alas/assets/js/15.114dfd5c.js"><link rel="prefetch" href="/Alas/assets/js/16.85253907.js"><link rel="prefetch" href="/Alas/assets/js/17.c2838453.js"><link rel="prefetch" href="/Alas/assets/js/18.3256f17f.js"><link rel="prefetch" href="/Alas/assets/js/19.d8afd0ae.js"><link rel="prefetch" href="/Alas/assets/js/20.0d880388.js"><link rel="prefetch" href="/Alas/assets/js/21.33b300c9.js"><link rel="prefetch" href="/Alas/assets/js/23.ccf6b21e.js"><link rel="prefetch" href="/Alas/assets/js/24.620a5ae3.js"><link rel="prefetch" href="/Alas/assets/js/25.b243930f.js"><link rel="prefetch" href="/Alas/assets/js/27.a3ecd6af.js"><link rel="prefetch" href="/Alas/assets/js/28.b81b444b.js"><link rel="prefetch" href="/Alas/assets/js/29.ed4f432f.js"><link rel="prefetch" href="/Alas/assets/js/3.af33e5d6.js"><link rel="prefetch" href="/Alas/assets/js/30.99f1899d.js"><link rel="prefetch" href="/Alas/assets/js/31.4fa34d9b.js"><link rel="prefetch" href="/Alas/assets/js/32.4a58fd7b.js"><link rel="prefetch" href="/Alas/assets/js/33.ab078124.js"><link rel="prefetch" href="/Alas/assets/js/34.8b41492d.js"><link rel="prefetch" href="/Alas/assets/js/35.9aec14d2.js"><link rel="prefetch" href="/Alas/assets/js/36.de1ef7a3.js"><link rel="prefetch" href="/Alas/assets/js/37.9ba2dcb9.js"><link rel="prefetch" href="/Alas/assets/js/38.7d3b1671.js"><link rel="prefetch" href="/Alas/assets/js/39.e08f61de.js"><link rel="prefetch" href="/Alas/assets/js/4.0a92875f.js"><link rel="prefetch" href="/Alas/assets/js/5.7098d77a.js"><link rel="prefetch" href="/Alas/assets/js/6.0c0a0f39.js"><link rel="prefetch" href="/Alas/assets/js/7.6a854e57.js"><link rel="prefetch" href="/Alas/assets/js/vendors~docsearch.5e19b665.js">
+    <link rel="stylesheet" href="/Alas/assets/css/0.styles.78e31a42.css">
   </head>
   <body>
     <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/Alas/" class="home-link router-link-active"><!----> <span class="site-name">ALAS Guide</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/Alas/guide/" class="nav-link router-link-active">
@@ -32,13 +32,13 @@
 <span class="token keyword">import</span> axios <span class="token keyword">from</span> <span class="token string">'axios'</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> createStore <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vuex'</span>
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">createStore</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    state<span class="token operator">:</span> <span class="token punctuation">{</span>
-        user<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
-        error<span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
-        called<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-        loading<span class="token operator">:</span> <span class="token boolean">false</span>
+    <span class="token literal-property property">state</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">user</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">error</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">called</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">loading</span><span class="token operator">:</span> <span class="token boolean">false</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    actions<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">actions</span><span class="token operator">:</span> <span class="token punctuation">{</span>
         <span class="token keyword">async</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> context <span class="token punctuation">}</span><span class="token punctuation">,</span> username</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'startFetch'</span><span class="token punctuation">)</span>
             <span class="token keyword">try</span> <span class="token punctuation">{</span>
@@ -49,7 +49,7 @@
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    mutations<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">mutations</span><span class="token operator">:</span> <span class="token punctuation">{</span>
         <span class="token function">startFetch</span><span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             state<span class="token punctuation">.</span>called <span class="token operator">=</span> <span class="token boolean">true</span>
             state<span class="token punctuation">.</span>loading <span class="token operator">=</span> <span class="token boolean">true</span>
@@ -69,7 +69,7 @@
             state<span class="token punctuation">.</span>loading <span class="token operator">=</span> <span class="token boolean">false</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    modules<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">modules</span><span class="token operator">:</span> <span class="token punctuation">{</span>
         <span class="token function-variable function">user</span><span class="token operator">:</span> <span class="token parameter">state</span> <span class="token operator">=&gt;</span> state<span class="token punctuation">.</span>user<span class="token punctuation">,</span>
         <span class="token function-variable function">error</span><span class="token operator">:</span> <span class="token parameter">state</span> <span class="token operator">=&gt;</span> state<span class="token punctuation">.</span>error<span class="token punctuation">,</span>
         <span class="token function-variable function">called</span><span class="token operator">:</span> <span class="token parameter">state</span> <span class="token operator">=&gt;</span> state<span class="token punctuation">.</span>called<span class="token punctuation">,</span>
@@ -93,8 +93,8 @@
 <span class="token keyword">import</span> <span class="token punctuation">{</span> useStore <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vuex'</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> defineComponent<span class="token punctuation">,</span> onMounted<span class="token punctuation">,</span> reactive <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    props<span class="token operator">:</span> <span class="token punctuation">{</span>
-        username<span class="token operator">:</span> String
+    <span class="token literal-property property">props</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">username</span><span class="token operator">:</span> String
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token function">setup</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> username <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token function">useStore</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -109,10 +109,10 @@
         <span class="token punctuation">}</span>
         <span class="token keyword">return</span> <span class="token punctuation">{</span>
             refresh<span class="token punctuation">,</span>
-            user<span class="token operator">:</span> <span class="token function">computed</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> store<span class="token punctuation">.</span>getters<span class="token punctuation">[</span><span class="token string">'user'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            error<span class="token operator">:</span> <span class="token function">computed</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> store<span class="token punctuation">.</span>getters<span class="token punctuation">[</span><span class="token string">'error'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            isAdult<span class="token operator">:</span> <span class="token function">computed</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> store<span class="token punctuation">.</span>getters<span class="token punctuation">[</span><span class="token string">'isAdult'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-            loading<span class="token operator">:</span> <span class="token function">computed</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> store<span class="token punctuation">.</span>getters<span class="token punctuation">[</span><span class="token string">'loading'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token literal-property property">user</span><span class="token operator">:</span> <span class="token function">computed</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> store<span class="token punctuation">.</span>getters<span class="token punctuation">[</span><span class="token string">'user'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">error</span><span class="token operator">:</span> <span class="token function">computed</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> store<span class="token punctuation">.</span>getters<span class="token punctuation">[</span><span class="token string">'error'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">isAdult</span><span class="token operator">:</span> <span class="token function">computed</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> store<span class="token punctuation">.</span>getters<span class="token punctuation">[</span><span class="token string">'isAdult'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token literal-property property">loading</span><span class="token operator">:</span> <span class="token function">computed</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> store<span class="token punctuation">.</span>getters<span class="token punctuation">[</span><span class="token string">'loading'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
@@ -120,7 +120,7 @@
 </code></pre></div><p>Vuex 在處理 <strong>動作同步行為(interaction)</strong> 是良好的 <em>(這也是 ALAS 不擅長的地方)</em>，例如進行拖曳、跳出訊息之類等 Layout Component 就很適合與 Vuex 進行封裝處理，但當目標放在向後端請求資源的時候缺點就會暴露出來。</p> <ul><li>TypeScript 支援度很差</li> <li>一個行為要變更的程式碼實在太多</li> <li>當需求變更的時候，Vuex 容易造成其他程式碼一同發生錯誤</li> <li>當規模大時，由於 Vuex 的職責過多，基於屬性 modules 進行擴展的管理並不容易，容易造成開發者的混亂</li> <li>當對 UX 有嚴格的要求的時候，Vuex 會有大量需要特別定義的 state，這將導致過度偶合的問題發生</li></ul> <h2 id="alas-status"><a href="#alas-status" class="header-anchor">#</a> Alas Status</h2> <p>ALAS 自己具有建立 Model Group 的功能，稱之為 <code>Status</code>，以下例子將解釋如何取代 Vuex 管理後端資源的角色：</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// root-status.js</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> alas <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@/alas'</span>
 <span class="token keyword">export</span> <span class="token keyword">const</span> rootStatus <span class="token operator">=</span> alas<span class="token punctuation">.</span><span class="token function">registerStatus</span><span class="token punctuation">(</span><span class="token string">'RootStatus'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-    states<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">states</span><span class="token operator">:</span> <span class="token punctuation">{</span>
         <span class="token function-variable function">user</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> alas<span class="token punctuation">.</span><span class="token function">make</span><span class="token punctuation">(</span><span class="token string">'*'</span><span class="token punctuation">,</span> <span class="token string">'user'</span><span class="token punctuation">)</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
@@ -140,8 +140,8 @@
 <span class="token keyword">import</span> <span class="token punctuation">{</span> rootStatus <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./root-status.js'</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> defineComponent<span class="token punctuation">,</span> onMounted <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-    props<span class="token operator">:</span> <span class="token punctuation">{</span>
-        username<span class="token operator">:</span> String
+    <span class="token literal-property property">props</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">username</span><span class="token operator">:</span> String
     <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token function">setup</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> username <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">const</span> user <span class="token operator">=</span> rootStatus<span class="token punctuation">.</span><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">)</span>
@@ -163,11 +163,11 @@
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 </code></pre></div><p>在定義好 Model 後基於狀態的延伸變得非常簡單：</p> <ul><li>狀態可以重置</li> <li>TypeScript 的支援佳，變動相對容易</li> <li>可以基於 Import 行為去引入 Status，使管理更加容易</li> <li>複合式的狀態由 Model 本身去接手，改善了 Vuex 本身要進行資料改動的困難</li></ul> <h2 id="重製狀態"><a href="#重製狀態" class="header-anchor">#</a> 重製狀態</h2> <p>Status 可以隨時重置成最初宣告時的樣子，你可以在各種層級的 path 中定義自己個別的狀態，減輕 root status 的負擔，使程式碼更加清潔可控：</p> <h3 id="假設我們存在這樣的-vue-route"><a href="#假設我們存在這樣的-vue-route" class="header-anchor">#</a> 假設我們存在這樣的 Vue Route</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> routes <span class="token operator">=</span> <span class="token punctuation">[</span>
     <span class="token punctuation">{</span>
-        path<span class="token operator">:</span> <span class="token string">'users/:user'</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'users/:user'</span><span class="token punctuation">,</span>
         <span class="token function-variable function">component</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./users/main.vue'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        children<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token literal-property property">children</span><span class="token operator">:</span> <span class="token punctuation">[</span>
             <span class="token punctuation">{</span>
-                path<span class="token operator">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
+                <span class="token literal-property property">path</span><span class="token operator">:</span> <span class="token string">'/'</span><span class="token punctuation">,</span>
                 <span class="token function-variable function">component</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./users/overview.vue'</span><span class="token punctuation">)</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">]</span>
@@ -217,7 +217,7 @@
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
     <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         <span class="token keyword">return</span> <span class="token punctuation">{</span>
-            user<span class="token operator">:</span> status<span class="token punctuation">.</span><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">)</span>
+            <span class="token literal-property property">user</span><span class="token operator">:</span> status<span class="token punctuation">.</span><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">)</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
@@ -231,6 +231,6 @@
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/Alas/assets/js/app.7ebddd00.js" defer></script><script src="/Alas/assets/js/2.84290cca.js" defer></script><script src="/Alas/assets/js/11.62db5f22.js" defer></script><script src="/Alas/assets/js/6.bff73d77.js" defer></script>
+    <script src="/Alas/assets/js/app.d0fe28ab.js" defer></script><script src="/Alas/assets/js/2.778bb4ad.js" defer></script><script src="/Alas/assets/js/1.f8bb34da.js" defer></script><script src="/Alas/assets/js/26.1c63c01f.js" defer></script><script src="/Alas/assets/js/22.3baff8a9.js" defer></script>
   </body>
 </html>

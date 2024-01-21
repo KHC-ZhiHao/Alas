@@ -1,0 +1,22 @@
+{
+  "name": "alas-doc",
+  "version": "0.0.1",
+  "description": "View Model System.",
+  "scripts": {
+    "dev": "vuepress dev .",
+    "build": "vuepress build ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KHC-ZhiHao/Alas.git"
+  },
+  "author": "khczhihao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KHC-ZhiHao/Alas/issues"
+  },
+  "homepage": "https://github.com/KHC-ZhiHao/Alas#readme",
+  "devDependencies": {
+    "vuepress": "1.9.10"
+  }
+}

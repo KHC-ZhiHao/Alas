@@ -475,7 +475,7 @@ model.$init = function(data: any) => Model // 返回自己
 
 ### $copy
 
-複製一份與當下狀態相同的 Model。
+複製一份與當下狀態相同的 Model，注意 $self 的狀態並不會被複製。
 
 ```ts
 model.$copy = function(options?: { save?: boolean }) => Model

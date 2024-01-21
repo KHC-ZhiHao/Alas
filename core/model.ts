@@ -83,7 +83,7 @@ class Model {
         return this
     }
 
-    $copy(options?: MakeModelOptions & { withSelf?: boolean }) {
+    $copy(options?: MakeModelOptions) {
         return this._model.copy(options).unit as this
     }
 

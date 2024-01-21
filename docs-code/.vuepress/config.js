@@ -1,7 +1,7 @@
 module.exports = {
     label: '繁體中文',
     title: 'ALAS Guide',
-    dest: './docs',
+    dest: '../docs',
     base: '/Alas/',
     description: '資源狀態管理工具',
     head: [
