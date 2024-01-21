@@ -31,7 +31,9 @@ declare class Model {
         [key: string]: string;
     }): string;
     $init(data?: any): this;
-    $copy(options?: MakeModelOptions): this;
+    $copy(options?: MakeModelOptions & {
+        withSelf?: boolean;
+    }): this;
     $body(): any;
     $setAttr(data: Partial<Omit<PickByTypeStrict<number | boolean | string, this>, keyof Model>>): void;
     $keys(): string[];
