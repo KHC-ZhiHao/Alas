@@ -5,7 +5,7 @@
 <h1 align="center">ALAS</h1>
 <h3 align="center">View Model Library</h3>
 
-<p align="center">
+<h6 align="center">
     <a href="https://www.npmjs.com/package/alas">
         <img src="https://img.shields.io/npm/v/alas.svg">
     </a>
@@ -22,9 +22,13 @@
         <img src="https://img.shields.io/github/stars/KHC-ZhiHao/Alas.svg?style=social">
     </a>
     <br>
-</p>
+</h6>
 
 <br>
+
+```
+Alas 是誕生在 Vue2 的時代，隨著漸漸轉換成 Vue3，本套件透過 Options 的設計模式已經跟不上時代了，因此你的專案如果是 Vue3 並不推薦使用。
+```
 
 在此我們只提供簡易說明，詳細介紹 [技術文件](https://khc-zhihao.github.io/Alas/) 中得知。
 
